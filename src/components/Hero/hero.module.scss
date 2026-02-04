@@ -1,0 +1,48 @@
+@use "../../styles/variables" as *;
+@use "../../styles/font_mixins" as *;
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3rem;
+  position: relative;
+  overflow: hidden;
+
+  .content {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  h2 {
+    @include title-section();
+  }
+
+  .content .title {
+    @include title-hero();
+
+    overflow: hidden;
+    .line {
+      display: block;
+      overflow: hidden;
+      .accent {
+        color: $color-tonic;
+      }
+    }
+  }
+
+  .bottom {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    .text {
+      @include text-hero();
+      max-width: 500px;
+    }
+  }
+}
