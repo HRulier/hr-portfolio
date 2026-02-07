@@ -1,0 +1,70 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/animations_mixins" as *;
+@use "../../styles/variables" as *;
+
+.header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $sp-sm;
+  @include slideDown();
+
+  @media (min-width: $bp-md) {
+    padding: $sp-md $sp-xl;
+  }
+
+  .logo {
+    font-family: $font-family;
+    font-size: $fs-logo;
+    font-weight: $fw-bold;
+    line-height: $lh-tight;
+    // letter-spacing: -0.04em;
+    // letter-spacing: $ls-wide;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+
+    li {
+      display: inline-block;
+      // margin: 0 $sp-sm;
+
+      &:not(:last-child) {
+        display: none;
+
+        @media (min-width: $bp-md) {
+          display: inline-block;
+        }
+      }
+
+      &:last-child {
+        display: inline-block;
+      }
+
+      a {
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: $fs-label;
+        font-weight: $fw-regular;
+        letter-spacing: $ls-wide;
+        text-decoration: none;
+
+        &:not(.cta):hover {
+          transition: color 0.3s ease;
+          color: $color-tonic;
+        }
+
+        &.cta {
+          @include btn-ctn();
+        }
+      }
+    }
+  }
+}

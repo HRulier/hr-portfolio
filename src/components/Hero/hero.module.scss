@@ -1,5 +1,6 @@
 @use "../../styles/variables" as *;
 @use "../../styles/font_mixins" as *;
+@use "../../styles/animations_mixins" as *;
 
 .hero {
   position: relative;
@@ -23,13 +24,23 @@
 
   .content .title {
     @include title-hero();
-
     overflow: hidden;
     .line {
+      position: relative;
       display: block;
       overflow: hidden;
+      > span {
+        display: block;
+        @include slideUp();
+        transform: translateY(0);
+      }
+
       .accent {
         color: $color-tonic;
+      }
+
+      &:nth-child(2) > span {
+        animation-delay: 0.15s;
       }
     }
   }

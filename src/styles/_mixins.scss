@@ -1,0 +1,15 @@
+@use "./variables" as *;
+
+@mixin btn-ctn() {
+  background-color: $color-tonic;
+  color: $color-white;
+  border-radius: 0;
+  padding: 0.75rem $sp-md;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-black;
+    box-shadow: 0 10px 30px rgba($color: $color-tonic, $alpha: 0.3);
+  }
+}
