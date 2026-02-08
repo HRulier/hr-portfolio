@@ -1,0 +1,56 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.cta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 1.5rem;
+  overflow: hidden;
+
+  @media (min-width: $bp-md) {
+    padding: 12rem 3rem;
+  }
+
+  .content {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+
+    .title {
+      font-size: clamp(2rem, 10vw, 4rem);
+      font-weight: $fw-black;
+      letter-spacing: $ls-tight;
+      margin-bottom: $sp-md;
+      line-height: 1;
+
+      @media (min-width: $bp-md) {
+        font-size: $fs-cta-title;
+      }
+
+      .dot {
+        color: $color-tonic;
+      }
+    }
+
+    p {
+      font-size: $fs-logo;
+      color: $color-gray;
+      margin-bottom: $sp-xl;
+    }
+
+    .btnCta {
+      @include btn-cta();
+      font-weight: $fw-medium;
+      padding: $sp-md $sp-lg;
+      svg {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s ease;
+      }
+    }
+  }
+}

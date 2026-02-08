@@ -62,7 +62,7 @@
         }
 
         &.cta {
-          @include btn-ctn();
+          @include btn-cta();
         }
       }
     }

@@ -2,7 +2,7 @@ import styles from "./hero.module.scss";
 
 export default function Hero() {
   return (
-    <div className={styles.hero}>
+    <section className={styles.hero}>
       <div className={styles.content}>
         <h1 className={styles.title}>
           <span className={styles.line}>
@@ -35,6 +35,6 @@ export default function Hero() {
         <div className={styles.scrollLine} />
         Scroll
       </div>
-    </div>
+    </section>
   );
 }
