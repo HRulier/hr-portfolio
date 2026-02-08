@@ -1,8 +1,10 @@
+@use "./variables" as *;
+
 @mixin slideUp() {
-  animation: slideUp 1s;
+  animation: slideUp $duration-slower;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   animation-iteration-count: 1;
-  animation-direction: forward;
+  animation-fill-mode: forwards;
 
   @keyframes slideUp {
     0% {
@@ -15,7 +17,7 @@
 }
 
 @mixin slideDown() {
-  animation: slideDown 0.3s ease;
+  animation: slideDown $duration-fast ease;
   animation-iteration-count: 1;
   animation-direction: forward;
 
@@ -26,5 +28,11 @@
     100% {
       transform: translateY(0);
     }
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
 }

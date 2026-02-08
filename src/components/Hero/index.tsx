@@ -20,6 +20,20 @@ export default function Hero() {
           Conception et développement d&apos;applications web performantes.
           Spécialisé MERN Stack, API REST et interfaces temps réel.
         </p>
+        <div className={styles.meta}>
+          <div>
+            <span className={styles.label}>BASÉ À</span>
+            <span>PARIS, FR</span>
+          </div>
+          <div>
+            <span className={styles.label}>DISPONIBLE</span>
+            <span>MAINTENANT</span>
+          </div>
+        </div>
+      </div>
+      <div className={styles.scrollIndicator}>
+        <div className={styles.scrollLine} />
+        Scroll
       </div>
     </div>
   );
