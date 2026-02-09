@@ -32,7 +32,9 @@
       }
 
       .dot {
+        display: inline-block;
         color: $color-tonic;
+        pointer-events: none;
       }
     }
 
