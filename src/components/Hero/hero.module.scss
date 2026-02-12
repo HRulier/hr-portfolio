@@ -8,14 +8,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 6rem 1.5rem;
-  position: relative;
+  padding: $sp-section 1.5rem;
   overflow: hidden;
 
   @media (min-width: $bp-md) {
-    padding: 12rem 3rem;
+    padding: $sp-section-lg 3rem;
   }
-
   .content {
     max-width: 1400px;
     margin: 0 auto;

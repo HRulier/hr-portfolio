@@ -7,11 +7,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 6rem 1.5rem;
+  padding: $sp-section 1.5rem;
   overflow: hidden;
 
   @media (min-width: $bp-md) {
-    padding: 12rem 3rem;
+    padding: $sp-section-lg 3rem;
   }
 
   .content {

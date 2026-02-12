@@ -1,6 +1,7 @@
 import styles from "./page.module.scss";
 import Hero from "@/components/Hero";
 import CTA from "@/components/CTA";
+import Stack from "@/components/Stack";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <main className={styles.main}>
         <Hero />
         <CTA />
+        <Stack />
       </main>
     </div>
   );

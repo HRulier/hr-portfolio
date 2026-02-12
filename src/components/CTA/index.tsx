@@ -11,7 +11,6 @@ export default function CTA() {
   const containerRef = useRef<HTMLElement>(null);
   const dotRef = useRef<HTMLSpanElement>(null);
   const isInsideRef = useRef(false);
-  const dotOriginalCenterRef = useRef({ x: 0, y: 0 });
   const mouseRef = useRef({ x: 0, y: 0 });
 
   const { isInside } = useMousePosition({
@@ -36,20 +35,6 @@ export default function CTA() {
     isInsideRef.current = isInside;
   }, [isInside]);
 
-  // Set original dot position
-  useEffect(() => {
-    dotOriginalCenterRef.current = getDotCenter();
-    const onResize = () => {
-      dotOriginalCenterRef.current = getDotCenter();
-    };
-
-    window.addEventListener("resize", onResize, { passive: true });
-
-    return () => {
-      window.removeEventListener("resize", onResize);
-    };
-  }, []);
-
   useEffect(() => {
     const dot = dotRef.current;
     if (!dot) return;
@@ -59,10 +44,10 @@ export default function CTA() {
       y: 0,
     };
 
+    let dotCenter = getDotCenter();
+
     const animate = () => {
       const { x: mouseX, y: mouseY } = mouseRef.current;
-
-      const dotCenter = getDotCenter();
 
       // define the target position
 
@@ -70,8 +55,8 @@ export default function CTA() {
       let targetY = mouseY;
 
       if (!isInsideRef.current) {
-        targetX = dotOriginalCenterRef.current.x;
-        targetY = dotOriginalCenterRef.current.y;
+        targetX = dotCenter.x;
+        targetY = dotCenter.y;
       }
 
       //
@@ -81,10 +66,15 @@ export default function CTA() {
         y: targetY - dotCenter.y,
       };
 
-      position.x += dist.x * 0.2;
-      position.y += dist.y * 0.2;
+      const currentDist = {
+        x: dist.x - position.x,
+        y: dist.y - position.y,
+      };
 
-      const t = Math.min(Math.abs(dist.x), 100) / 100;
+      position.x += currentDist.x * 0.2;
+      position.y += currentDist.y * 0.2;
+
+      const t = Math.min(Math.abs(currentDist.x), 100) / 100;
       const k = isInsideRef.current ? 0.5 + t * 0.7 : 1;
 
       if (
@@ -103,11 +93,16 @@ export default function CTA() {
     };
 
     let rafId = requestAnimationFrame(animate);
+    const onResize = () => {
+      dotCenter = getDotCenter();
+    };
+
+    window.addEventListener("resize", onResize, { passive: true });
 
     return () => {
-      dot.style.transform = "translate(0px, 0px)";
+      // dot.style.transform = "translate(0px, 0px)";
       cancelAnimationFrame(rafId);
-      dotOriginalCenterRef.current = getDotCenter() || { x: 0, y: 0 };
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
