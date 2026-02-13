@@ -1,5 +1,6 @@
 @use "../../styles/mixins" as *;
 @use "../../styles/font_mixins" as *;
+@use "../../styles/animations_mixins" as *;
 @use "../../styles/variables" as *;
 
 .stack {
@@ -73,16 +74,27 @@
       }
 
       .skill {
-        display: flex;
-        justify-content: space-between;
+        display: block;
         list-style: none;
         font-weight: $fw-regular;
         padding: $sp-md 0;
-
         border-bottom: solid 1px $color-light-gray;
+
+        opacity: 0;
+        transition: all 0.3s ease;
+
+        &.visible {
+          opacity: 1;
+          @include slideUp();
+        }
 
         &:first-child {
           border-top: solid 1px $color-light-gray;
+        }
+
+        > div {
+          display: flex;
+          justify-content: space-between;
         }
 
         .name {

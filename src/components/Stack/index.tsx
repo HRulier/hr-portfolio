@@ -1,5 +1,5 @@
 "use client";
-
+import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 import styles from "./stack.module.scss";
 
 const skills = [
@@ -53,6 +53,24 @@ const skills = [
   },
 ];
 
+const Skill = ({ name, category }: { name: string; category: string }) => {
+  const { ref: skillRef, isIntersecting } =
+    useIntersectionObserver<HTMLDivElement>({
+      threshold: 1.0,
+      rootMargin: "-30px 0px -30px 0px",
+      triggerOnce: true,
+    });
+
+  return (
+    <li className={`${styles.skill} ${isIntersecting ? styles.visible : ""}`}>
+      <div ref={skillRef}>
+        <span className={styles.name}>{name}</span>
+        <span className={styles.category}>{category}</span>
+      </div>
+    </li>
+  );
+};
+
 export default function Stack() {
   return (
     <section className={styles.stack}>
@@ -78,10 +96,11 @@ export default function Stack() {
           <div className={styles.skills}>
             <ul>
               {skills.map((skill, index) => (
-                <li key={index} className={styles.skill}>
-                  <span className={styles.name}>{skill.name}</span>
-                  <span className={styles.category}>{skill.category}</span>
-                </li>
+                <Skill
+                  key={index}
+                  name={skill.name}
+                  category={skill.category}
+                />
               ))}
             </ul>
             {/* <div className="skill-item">
