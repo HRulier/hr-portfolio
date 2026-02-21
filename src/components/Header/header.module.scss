@@ -12,6 +12,7 @@
   align-items: center;
   justify-content: space-between;
   padding: $sp-sm;
+  height: 90px;
   @include slideDown();
 
   @media (min-width: $bp-md) {

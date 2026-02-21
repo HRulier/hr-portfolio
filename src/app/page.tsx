@@ -1,16 +1,15 @@
-import styles from "./page.module.scss";
 import Hero from "@/components/Hero";
 import CTA from "@/components/CTA";
+import Projects from "@/components/Projects";
 import Stack from "@/components/Stack";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Hero />
-        <CTA />
-        <Stack />
-      </main>
-    </div>
+    <>
+      <Hero />
+      <Projects />
+      <Stack />
+      <CTA />
+    </>
   );
 }
