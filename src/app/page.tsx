@@ -1,7 +1,7 @@
-import Hero from "@/components/Hero";
-import CTA from "@/components/CTA";
-import Projects from "@/components/Projects";
-import Stack from "@/components/Stack";
+import Hero from "@/components/Home/Hero";
+import CTA from "@/components/Home/CTA";
+import Projects from "@/components/Home/Projects";
+import Stack from "@/components/Home/Stack";
 
 export default function Home() {
   return (
