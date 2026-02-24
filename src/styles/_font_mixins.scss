@@ -27,6 +27,14 @@
   }
 }
 
+@mixin title-project() {
+  font-family: $font-family;
+  font-size: clamp(4rem, 15vw, 14rem);
+  font-weight: $fw-black;
+  line-height: $lh-tight;
+  letter-spacing: -0.04em;
+}
+
 @mixin title-section() {
   font-family: $font-family;
   font-size: $fs-section-title;

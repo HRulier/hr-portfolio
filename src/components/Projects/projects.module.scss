@@ -12,18 +12,83 @@
     overflow: visible;
 
     .sticky {
-      top: 90px;
       position: sticky;
+      top: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
       height: calc(100vh - 90px);
+      overflow-x: hidden;
 
-      z-index: 100;
+      .content {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: $sp-xxl;
+        padding: 0 8rem 0 1.5rem;
 
-      .header {
-        h2 {
-          @include title-section();
-          margin-bottom: $sp-md;
-          @media (min-width: $bp-md) {
-            margin-bottom: $sp-xl;
+        @media (min-width: $bp-md) {
+          padding: 0 12rem 0 3rem;
+        }
+
+        .header {
+          transform: translateY(100%);
+          &.visible {
+            @include slideUp();
+          }
+
+          h2 {
+            @include title-project();
+            margin-right: $sp-xl;
+            @media (min-width: $bp-md) {
+              margin-right: $sp-xxl;
+            }
+          }
+        }
+
+        article {
+          flex: 0 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: $sp-sm;
+          width: clamp(450px, 45vw, 600px);
+
+          .image {
+            margin-bottom: $sp-md;
+          }
+
+          h3 {
+            font-size: $fs-project-title;
+            font-weight: $fw-semibold;
+            color: $color-black;
+          }
+
+          h4 {
+            font-size: 1rem;
+            font-weight: $fw-semibold;
+            color: $color-tonic;
+          }
+
+          p {
+            @include text-body();
+            font-size: $fs-label;
+            color: $color-gray;
+            margin: 0;
+          }
+
+          ul {
+            display: flex;
+            gap: $sp-xs;
+            margin: 0;
+            li {
+              display: block;
+              font-size: $fs-tag;
+              font-weight: $fw-medium;
+              color: $color-black;
+              background-color: $color-white;
+              border: solid 1px $color-light-gray;
+              padding: $sp-xs;
+            }
           }
         }
       }

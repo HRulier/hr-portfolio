@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "number": "01",
+    "title": "Plateforme salon de l'électroménager",
+    "subtitle": "E.Leclerc",
+    "description": "Plateforme web et application mobile dédiées à la gestion d'un salon professionnel de l'électroménager, permettant aux fournisseurs et magasins de gérer leur participation de bout en bout : inscription, réservation de stands, animations et commandes.",
+    "tags": ["React", "React Native", "TypeScript", "REST API"],
+    "image": {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect fill='%23d4d0cb' width='800' height='500'/%3E%3Ctext x='400' y='300' text-anchor='middle' fill='%236b6b6b' font-family='Inter, sans-serif' font-size='24'%3EProjet 1%3C/text%3E%3C/svg%3E",
+      "alt": "Plateforme salon de l'électroménager — E.Leclerc"
+    }
+  },
+  {
+    "id": 2,
+    "number": "02",
+    "title": "Plateforme salon & gestion d'événements",
+    "subtitle": "Système U",
+    "description": "Solution web et PWA pour la gestion d'un salon professionnel enrichie d'un module de gestion d'événements internes (conférences, rendez-vous commerciaux), avec validation des entrées et création des badges participants.",
+    "tags": ["React", "PWA", "Node.js", "Express", "MongoDB", "TypeScript"],
+    "image": {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect fill='%23d4d0cb' width='800' height='500'/%3E%3Ctext x='400' y='300' text-anchor='middle' fill='%236b6b6b' font-family='Inter, sans-serif' font-size='24'%3EProjet 2%3C/text%3E%3C/svg%3E",
+      "alt": "Plateforme salon & gestion d'événements — Système U"
+    }
+  },
+  {
+    "id": 3,
+    "number": "03",
+    "title": "Suivi santé en milieu animalier",
+    "subtitle": "Parc animalier (projet entrepreneurial)",
+    "description": "Solution numérique permettant aux soigneurs de relever des observations de santé sur des dauphins, avec un dashboard de dataviz et un outil de saisie PWA fonctionnel hors-ligne grâce à un Service Worker.",
+    "tags": [
+      "React",
+      "PWA",
+      "Service Worker",
+      "Node.js",
+      "MongoDB",
+      "Recharts",
+      "D3.js"
+    ],
+    "image": {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect fill='%23d4d0cb' width='800' height='500'/%3E%3Ctext x='400' y='300' text-anchor='middle' fill='%236b6b6b' font-family='Inter, sans-serif' font-size='24'%3EProjet 3%3C/text%3E%3C/svg%3E",
+      "alt": "Suivi santé en milieu animalier"
+    }
+  },
+  {
+    "id": 4,
+    "number": "04",
+    "title": "LVTec — Gestion de matériel de chantier",
+    "subtitle": "LVTec",
+    "description": "Plateforme web et application terrain pour la gestion complète du matériel de chantier : planification des transports, assignation des tâches aux ouvriers, contrôle de l'état du matériel avec upload de photos et GED intégrée.",
+    "tags": ["React", "React Native", "TypeScript", "REST API"],
+    "image": {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect fill='%23d4d0cb' width='800' height='500'/%3E%3Ctext x='400' y='300' text-anchor='middle' fill='%236b6b6b' font-family='Inter, sans-serif' font-size='24'%3EProjet 4%3C/text%3E%3C/svg%3E",
+      "alt": "LVTec — Gestion de matériel de chantier"
+    }
+  },
+  {
+    "id": 5,
+    "number": "05",
+    "title": "Multicourses — Gestion de flotte & tournées",
+    "subtitle": "Multicourses",
+    "description": "Solution complète pour une entreprise de livraison : gestion du parc de véhicules et des sinistres, suivi du matériel livreurs, planification des tournées avec PWA dédiée et détection automatique des repas selon les horaires.",
+    "tags": [
+      "React",
+      "PWA",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+      "TypeScript"
+    ],
+    "image": {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect fill='%23d4d0cb' width='800' height='500'/%3E%3Ctext x='400' y='300' text-anchor='middle' fill='%236b6b6b' font-family='Inter, sans-serif' font-size='24'%3EProjet 5%3C/text%3E%3C/svg%3E",
+      "alt": "Multicourses — Gestion de flotte & tournées"
+    }
+  },
+  {
+    "id": 6,
+    "number": "06",
+    "title": "Inspiring Trend — Veille & dataviz",
+    "subtitle": "Inspiring Trend",
+    "description": "Plateforme de dataviz spécialisée utilisée par de grands groupes pour explorer des collections de centaines de milliers de documents : cartes relationnelles, visualisations géographiques, diagrammes et export de données.",
+    "tags": ["React", "D3.js", "REST API"],
+    "image": {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect fill='%23d4d0cb' width='800' height='500'/%3E%3Ctext x='400' y='300' text-anchor='middle' fill='%236b6b6b' font-family='Inter, sans-serif' font-size='24'%3EProjet 6%3C/text%3E%3C/svg%3E",
+      "alt": "Inspiring Trend — Plateforme de veille & dataviz"
+    }
+  },
+  {
+    "id": 7,
+    "number": "07",
+    "title": "SCE Event — Co-création synchronisée",
+    "subtitle": "SCE",
+    "description": "Web app de team building en distanciel pour environ 80 équipes : parcours de co-création multi-étapes synchronisé en temps réel via WebSocket, système de vote et présentation finale des concepts via pitch vidéo.",
+    "tags": ["React", "WebSocket", "Node.js", "Express", "MongoDB"],
+    "image": {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect fill='%23d4d0cb' width='800' height='500'/%3E%3Ctext x='400' y='300' text-anchor='middle' fill='%236b6b6b' font-family='Inter, sans-serif' font-size='24'%3EProjet 7%3C/text%3E%3C/svg%3E",
+      "alt": "SCE Event — Plateforme de co-création synchronisée"
+    }
+  }
+]
