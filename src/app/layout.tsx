@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.scss";
 
 import Header from "@/components/Header";
+import { TransitionProvider } from "@/components/PageTransition";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,8 +31,10 @@ export default function RootLayout({
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
       <body className={`${inter.variable}`}>
-        <Header />
-        {children}
+        <TransitionProvider>
+          <Header />
+          {children}
+        </TransitionProvider>
       </body>
     </html>
   );
