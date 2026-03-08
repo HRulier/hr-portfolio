@@ -16,10 +16,8 @@ const Header = () => {
         <li>
           <a href="#">Compétences</a>
         </li>
-        <li>
-          <a className={styles.cta} href="#">
-            Contact
-          </a>
+        <li className={styles.cta}>
+          <TransitionLink href="/contact">Contact</TransitionLink>
         </li>
       </ul>
     </nav>

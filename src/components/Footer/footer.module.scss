@@ -1,0 +1,37 @@
+@use "../../styles/variables" as *;
+
+.footer {
+  border-top: solid 1px $color-light-gray;
+  padding: $sp-xl $sp-xxl;
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+
+    > p {
+      font-size: $fs-tag;
+      color: $color-gray;
+      margin: 0;
+    }
+
+    .contactLinks {
+      display: flex;
+      flex-direction: column;
+      gap: $sp-md;
+
+      label {
+        text-transform: uppercase;
+        font-size: $fs-tag;
+        color: $color-gray;
+        letter-spacing: $ls-widest;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        font-weight: $fw-regular;
+        gap: $sp-xs;
+      }
+    }
+  }
+}

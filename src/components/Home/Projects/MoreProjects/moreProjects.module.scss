@@ -1,0 +1,53 @@
+@use "@/styles/variables" as *;
+
+.card {
+  flex: 0 0 auto;
+  width: clamp(320px, 30vw, 420px);
+  border: 1px solid $color-light-gray;
+  background-color: $color-bg;
+
+  a {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: $sp-xl;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover .arrow {
+      transform: translateX(12px);
+    }
+  }
+
+  .index {
+    display: block;
+    font-size: $fs-tag;
+    font-weight: $fw-semibold;
+    color: $color-tonic;
+    letter-spacing: $ls-widest;
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: $sp-md;
+  }
+
+  .label {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: $fw-black;
+    letter-spacing: $ls-tighter;
+    line-height: $lh-tight;
+    color: $color-black;
+    margin: 0;
+  }
+
+  .arrow {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: $fw-black;
+    color: $color-tonic;
+    display: block;
+    transition: transform $duration-fast $ease-smooth;
+  }
+}

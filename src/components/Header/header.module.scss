@@ -61,9 +61,12 @@
           transition: color 0.3s ease;
           color: $color-tonic;
         }
+      }
 
-        &.cta {
-          @include btn-cta();
+      &.cta a {
+        @include btn-cta();
+        &:hover {
+          color: $color-white;
         }
       }
     }

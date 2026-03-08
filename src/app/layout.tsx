@@ -1,12 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.scss";
 
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { TransitionProvider } from "@/components/PageTransition";
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
 });
 
@@ -28,12 +34,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+      <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <body className={`${inter.variable}`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable}`}>
         <TransitionProvider>
           <Header />
           {children}
+          <Footer />
         </TransitionProvider>
       </body>
     </html>

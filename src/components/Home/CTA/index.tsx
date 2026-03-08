@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import useMousePosition from "@/hooks/useMousePosition";
+import { TransitionLink } from "@/components/PageTransition";
 import styles from "./cta.module.scss";
 
 // const LERP = 0.12;
@@ -116,7 +117,7 @@ export default function CTA() {
           </span>
         </h2>
         <p>Mon profil vous intéresse ?</p>
-        <a href="#" className={styles.btnCta}>
+        <TransitionLink href="/contact" className={styles.btnCta}>
           Contact
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +132,7 @@ export default function CTA() {
               d="M17 8l4 4m0 0l-4 4m4-4H3"
             />
           </svg>
-        </a>
+        </TransitionLink>
       </div>
     </section>
   );

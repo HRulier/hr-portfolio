@@ -58,9 +58,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-
-    opacity: 0;
-    animation: fadeIn $duration-slower $ease-default forwards $duration-slower;
+    @include fadeIn();
 
     .text {
       @include text-hero();
@@ -104,8 +102,7 @@
     letter-spacing: $ls-wider;
     text-transform: uppercase;
     color: $color-gray;
-    opacity: 0;
-    animation: fadeIn $duration-slower $ease-default forwards $duration-slower;
+    @include fadeIn();
 
     .scrollLine {
       width: 60px;
