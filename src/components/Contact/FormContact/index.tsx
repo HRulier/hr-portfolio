@@ -17,10 +17,19 @@ export default function FormContact() {
     handleSubmit,
     reset,
     formState: { errors },
+    getValues,
   } = useForm<FormValues>();
 
-  const onSubmit = () => {
-    console.log("ok pour l'envoie");
+  const onSubmit = async () => {
+    const [email, message] = getValues(["email", "message"]);
+    const response = await fetch("/api/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, message }),
+    });
+    console.log(response.status);
     setIsSuccess(true);
   };
 
@@ -30,7 +39,9 @@ export default function FormContact() {
   };
 
   return (
-    <div className={`${styles.terminal}${isSuccess ? ` ${styles.success}` : ""}`}>
+    <div
+      className={`${styles.terminal}${isSuccess ? ` ${styles.success}` : ""}`}
+    >
       {/* Header macOS */}
       <div className={styles.header}>
         <span className={`${styles.dot} ${styles.red}`} />
@@ -40,7 +51,11 @@ export default function FormContact() {
       </div>
 
       {/* Form */}
-      <form className={styles.body} onSubmit={handleSubmit(onSubmit)} noValidate>
+      <form
+        className={styles.body}
+        onSubmit={handleSubmit(onSubmit)}
+        noValidate
+      >
         {/* Email */}
         <div className={styles.line}>
           <label className={styles.label} htmlFor="email">
@@ -139,7 +154,9 @@ export default function FormContact() {
         </div>
         <h3 className={styles.successTitle}>Message envoyé !</h3>
         <p className={styles.successMessage}>Je vous réponds très vite.</p>
-        <span className={styles.successCommand}>{"> return response.success"}</span>
+        <span className={styles.successCommand}>
+          {"> return response.success"}
+        </span>
         <button type="button" className={styles.btnReset} onClick={handleReset}>
           Envoyer un autre message
         </button>
