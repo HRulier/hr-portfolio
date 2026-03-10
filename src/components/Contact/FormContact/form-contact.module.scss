@@ -188,10 +188,18 @@
 // ==========================================
 .submit {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  gap: $sp-sm;
   margin-top: auto;
   padding-top: $sp-md; // 1.5rem
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.submitError {
+  font-size: $fs-tag; // 0.75rem
+  color: #ff5f56; // matches the red macOS dot
+  width: 100%;
 }
 
 .btnSubmit {

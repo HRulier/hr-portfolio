@@ -7,7 +7,9 @@ const Header = () => {
   return (
     <nav className={styles.header}>
       <TransitionLink href="/">
-        <div className={styles.logo}>HUGO RULIER.DEV</div>
+        <div className={styles.logo}>
+          HUGO RULIER<span className={styles.dot}>.</span>DEV
+        </div>
       </TransitionLink>
       <ul>
         <li>

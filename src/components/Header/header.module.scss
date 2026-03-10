@@ -26,6 +26,9 @@
     line-height: $lh-tight;
     // letter-spacing: -0.04em;
     // letter-spacing: $ls-wide;
+    .dot {
+      color: $color-tonic;
+    }
   }
 
   ul {
