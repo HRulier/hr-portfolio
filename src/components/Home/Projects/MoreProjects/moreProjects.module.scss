@@ -2,14 +2,13 @@
 
 .card {
   flex: 0 0 auto;
-  width: clamp(320px, 30vw, 420px);
-  border: 1px solid $color-light-gray;
-  background-color: $color-bg;
+  width: clamp(360px, 30vw, 460px);
+  border: solid 1px $color-light-gray;
 
   a {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     height: 100%;
     padding: $sp-xl;
     text-decoration: none;
@@ -20,31 +19,23 @@
     }
   }
 
-  .index {
-    display: block;
-    font-size: $fs-tag;
-    font-weight: $fw-semibold;
-    color: $color-tonic;
-    letter-spacing: $ls-widest;
-  }
-
   .body {
     display: flex;
     flex-direction: column;
-    gap: $sp-md;
+    gap: $sp-sm;
   }
 
   .label {
     font-size: clamp(1.75rem, 3.5vw, 2.5rem);
     font-weight: $fw-black;
     letter-spacing: $ls-tighter;
-    line-height: $lh-tight;
+    // line-height: $lh-wide;
     color: $color-black;
     margin: 0;
   }
 
   .arrow {
-    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-size: clamp(1rem, 3.5vw, 2rem);
     font-weight: $fw-black;
     color: $color-tonic;
     display: block;

@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "featured": true,
     "number": "01",
     "title": "Plateforme salon de l'électroménager",
     "subtitle": "E.Leclerc",
@@ -14,6 +15,7 @@
   {
     "id": 2,
     "number": "02",
+    "featured": true,
     "title": "Plateforme salon & gestion d'événements",
     "subtitle": "Système U",
     "description": "Solution web et PWA pour la gestion d'un salon professionnel enrichie d'un module de gestion d'événements internes (conférences, rendez-vous commerciaux), avec validation des entrées et création des badges participants.",
@@ -26,6 +28,7 @@
   {
     "id": 3,
     "number": "03",
+    "featured": true,
     "title": "Suivi santé en milieu animalier",
     "subtitle": "Parc animalier (projet entrepreneurial)",
     "description": "Solution numérique permettant aux soigneurs de relever des observations de santé sur des dauphins, avec un dashboard de dataviz et un outil de saisie PWA fonctionnel hors-ligne grâce à un Service Worker.",
