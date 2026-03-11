@@ -6,7 +6,6 @@ import styles from "./footer.module.scss";
 
 const Footer = () => {
   const pathname = usePathname();
-  console.log(pathname);
   return (
     <footer className={styles.footer}>
       <div>

@@ -46,13 +46,27 @@ export function usePageTransition() {
   return useContext(TransitionContext);
 }
 
+const usePathnameWithHash = () => {
+  const pathname = usePathname();
+  const [hash, setHash] = useState("");
+
+  useEffect(() => {
+    const onHashChange = () => setHash(window.location.hash);
+    onHashChange();
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, [pathname]);
+
+  return pathname + hash;
+};
+
 export function TransitionProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const router = useRouter();
-  const pathname = usePathname();
+  const pathname = usePathnameWithHash();
   const [phase, setPhase] = useState<Phase>("idle");
   const pendingHref = useRef<string | null>(null);
 
@@ -64,12 +78,14 @@ export function TransitionProvider({
 
   // Start uncovering once Next.js has rendered the new page
   useEffect(() => {
+    // console.log("useEffect", phase, pathname, pendingHref.current);
     if (phase === "navigating" && pathname === pendingHref.current) {
       startTransition(() => setPhase("uncovering"));
     }
   }, [pathname, phase]);
 
   const handleAnimationComplete = (definition: unknown) => {
+    console.log(definition);
     if (definition === "covering") {
       router.push(pendingHref.current!);
       setPhase("navigating");
@@ -112,7 +128,7 @@ export function TransitionLink({
   className,
 }: TransitionLinkProps) {
   const { navigate } = usePageTransition();
-  const pathname = usePathname();
+  const pathname = usePathnameWithHash();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (pathname === href) return;

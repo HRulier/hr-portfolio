@@ -16,7 +16,7 @@ const Header = () => {
           <TransitionLink href="/projects">Projets</TransitionLink>
         </li>
         <li>
-          <a href="#">Compétences</a>
+          <TransitionLink href="/#stack">Compétences</TransitionLink>
         </li>
         <li className={styles.cta}>
           <TransitionLink href="/contact">Contact</TransitionLink>

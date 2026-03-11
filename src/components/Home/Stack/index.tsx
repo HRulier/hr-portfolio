@@ -73,7 +73,7 @@ const Skill = ({ name, category }: { name: string; category: string }) => {
 
 export default function Stack() {
   return (
-    <section className={styles.stack}>
+    <section id="stack" className={styles.stack}>
       <div className={styles.content}>
         <div className={styles.header}>
           <h2 className={styles.title}>Stack technique</h2>
