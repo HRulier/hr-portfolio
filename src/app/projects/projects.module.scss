@@ -1,0 +1,52 @@
+@use "@/styles/variables" as *;
+@use "@/styles/font_mixins" as *;
+@use "@/styles/animations_mixins" as *;
+
+.projects {
+  padding-top: 90px;
+
+  section {
+    .content {
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+
+  .hero {
+    position: relative;
+    padding: $sp-section 1.5rem;
+    overflow: hidden;
+
+    @media (min-width: $bp-md) {
+      padding: 6rem 3rem 4rem;
+    }
+
+    .line {
+      position: relative;
+      display: block;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: clamp(4rem, 12vw, 10rem);
+      font-weight: $fw-black;
+      letter-spacing: $ls-tighter;
+      line-height: $lh-tight;
+      margin-bottom: $sp-md;
+
+      @include slideUp();
+
+      .dot {
+        color: $color-tonic;
+      }
+    }
+
+    p {
+      font-size: $fs-logo;
+      color: $color-gray;
+      @include fadeIn();
+      animation-delay: 0.7s;
+    }
+  }
+}
