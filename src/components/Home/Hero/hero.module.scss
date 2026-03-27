@@ -1,0 +1,140 @@
+@use "@/styles/variables" as *;
+@use "@/styles/font_mixins" as *;
+@use "@/styles/animations_mixins" as *;
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: $sp-section 1.5rem;
+  overflow: hidden;
+
+  @media (min-width: $bp-md) {
+    padding: $sp-section-lg 3rem;
+  }
+  .content {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  h2 {
+    @include title-section();
+  }
+
+  .content .title {
+    @include title-hero();
+    margin-bottom: $sp-lg;
+    overflow: hidden;
+    .line {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      > span {
+        display: block;
+        @include slideUp();
+        animation-delay: 0.5s;
+
+        transform: translateY(100%);
+      }
+
+      .accent {
+        color: $color-tonic;
+      }
+
+      &:nth-child(2) > span {
+        animation-delay: 0.75s;
+      }
+    }
+  }
+
+  .bottom {
+    position: absolute;
+    bottom: 6rem;
+    left: $sp-xl;
+    right: $sp-xl;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    @include fadeIn();
+
+    .text {
+      @include text-hero();
+      margin-bottom: 0;
+      max-width: 500px;
+    }
+
+    .meta {
+      display: flex;
+      flex-direction: column;
+      gap: $sp-md;
+      text-align: right;
+
+      span {
+        display: block;
+        color: $color-black;
+        font-size: 1.125rem;
+        font-weight: $fw-medium;
+        letter-spacing: $ls-wide;
+        margin-bottom: $sp-xs;
+      }
+
+      .label {
+        display: block;
+        color: $color-gray;
+        font-size: 0.75rem;
+        font-weight: $fw-regular;
+      }
+    }
+  }
+
+  .scrollIndicator {
+    position: absolute;
+    bottom: $sp-lg;
+    left: $sp-xl;
+    display: none;
+    align-items: center;
+    gap: $sp-sm;
+    font-size: $fs-tag;
+    font-weight: $fw-regular;
+    letter-spacing: $ls-wider;
+    text-transform: uppercase;
+    color: $color-gray;
+    @include fadeIn();
+
+    .scrollLine {
+      width: 60px;
+      height: 2px;
+      background: transparent;
+      position: relative;
+      overflow: hidden;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: $color-tonic;
+        animation: scrollPulse 2s ease-in-out infinite;
+      }
+    }
+
+    @media (min-width: $bp-md) {
+      display: flex;
+    }
+  }
+
+  @keyframes scrollPulse {
+    0%,
+    100% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(100%);
+    }
+  }
+}

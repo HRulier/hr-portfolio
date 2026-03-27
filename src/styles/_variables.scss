@@ -1,0 +1,113 @@
+// ==========================================
+// COULEURS
+// ==========================================
+$color-bg: #f0ebe6; // #d4ccbf || #f0ebe6
+$color-tonic: #212be8;
+$color-black: #0a0a0a;
+$color-white: #ffffff;
+$color-gray: #6b6b6b;
+$color-light-gray: #d4d0cb;
+
+:root {
+  --color-bg: #{$color-bg};
+  --color-tonic: #{$color-tonic};
+  --color-black: #{$color-black};
+  --color-white: #{$color-white};
+  --color-gray: #{$color-gray};
+  --color-light-gray: #{$color-light-gray};
+}
+
+// ==========================================
+// TYPOGRAPHIE
+// ==========================================
+$font-family:
+  "Inter",
+  -apple-system,
+  BlinkMacSystemFont,
+  sans-serif;
+
+// Font sizes
+$fs-hero: clamp(3rem, 15vw, 14rem);
+$fs-section-title: clamp(2rem, 5vw, 3.5rem);
+$fs-cta-title: clamp(2.5rem, 8vw, 6rem);
+$fs-project-title: 1.5rem;
+$fs-body: 1rem;
+$fs-label: 0.875rem;
+$fs-tag: 0.75rem;
+$fs-logo: 1.25rem;
+$fs-footer-logo: 2rem;
+
+// Font weights
+$fw-black: 900;
+$fw-bold: 800;
+$fw-semibold: 700;
+$fw-medium: 600;
+$fw-regular: 500;
+$fw-normal: 400;
+
+// Line heights
+$lh-tight: 0.85;
+$lh-snug: 1;
+$lh-normal: 1.5;
+$lh-relaxed: 1.7;
+$lh-loose: 1.8;
+
+// Letter spacings
+$ls-tighter: -0.04em;
+$ls-tight: -0.03em;
+$ls-logo: -0.02em;
+$ls-normal: 0;
+$ls-wide: 0.05em;
+$ls-wider: 0.1em;
+$ls-widest: 0.2em;
+
+// ==========================================
+// ESPACEMENTS
+// ==========================================
+$sp-xs: 0.5rem;
+$sp-sm: 1rem;
+$sp-md: 1.5rem;
+$sp-lg: 2rem;
+$sp-xl: 3rem;
+$sp-xxl: 4rem;
+$sp-section: 6rem;
+$sp-section-lg: 12rem;
+
+// ==========================================
+// BREAKPOINTS (mobile-first: min-width)
+// ==========================================
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+$bp-xxl: 1536px;
+
+// ==========================================
+// ANIMATIONS
+// ==========================================
+$ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-bounce: cubic-bezier(0.77, 0, 0.175, 1);
+$ease-button: cubic-bezier(0.4, 0, 0.2, 1);
+$ease-default: ease;
+
+$duration-fast: 0.3s;
+$duration-normal: 0.6s;
+$duration-slow: 0.8s;
+$duration-slower: 1s;
+$duration-slowest: 1.2s;
+
+// ==========================================
+// Z-INDEX
+// ==========================================
+$z-base: 1;
+$z-content: 10;
+$z-overlay: 100;
+$z-modal: 500;
+$z-navbar: 1000;
+$z-tooltip: 1500;
+
+// ==========================================
+// LAYOUT
+// ==========================================
+$max-width: 1400px;
+$navbar-height: 80px;

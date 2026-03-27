@@ -1,0 +1,44 @@
+@use "@/styles/variables" as *;
+
+.card {
+  flex: 0 0 auto;
+  width: clamp(360px, 30vw, 460px);
+  border: solid 1px $color-light-gray;
+
+  a {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    padding: $sp-xl;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover .arrow {
+      transform: translateX(12px);
+    }
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: $sp-sm;
+  }
+
+  .label {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: $fw-black;
+    letter-spacing: $ls-tighter;
+    // line-height: $lh-wide;
+    color: $color-black;
+    margin: 0;
+  }
+
+  .arrow {
+    font-size: clamp(1rem, 3.5vw, 2rem);
+    font-weight: $fw-black;
+    color: $color-tonic;
+    display: block;
+    transition: transform $duration-fast $ease-smooth;
+  }
+}

@@ -1,0 +1,61 @@
+@use "@/styles/variables" as *;
+
+:root {
+  --color-bg: #{$color-bg};
+  --color-tonic: #{$color-tonic};
+  --color-black: #{$color-black};
+  --color-white: #{$color-white};
+  --color-gray: #{$color-gray};
+  --color-light-gray: #{$color-light-gray};
+}
+
+// :root {
+//   --background: #ffffff;
+//   --foreground: #171717;
+// }
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --background: #0a0a0a;
+//     --foreground: #ededed;
+//   }
+// }
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  max-width: 100vw;
+}
+
+body {
+  color: var(--color-black);
+  background: var(--color-bg);
+  font-family: "Inter", sans-serif;
+  font-size: $fs-body;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  font-size: $fs-body;
+  margin: 0 0 $sp-md 0;
+}
+
+// @media (prefers-color-scheme: dark) {
+//   html {
+//     color-scheme: dark;
+//   }
+// }

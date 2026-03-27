@@ -1,0 +1,17 @@
+@use "@/styles/variables" as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  background-color: $color-black;
+  pointer-events: none;
+
+  &.overlay2 {
+    background-color: $color-tonic;
+  }
+
+  // &:not([style*="translateY(100%)"]) {
+  //   pointer-events: all;
+  // }
+}

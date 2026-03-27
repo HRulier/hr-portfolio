@@ -1,0 +1,43 @@
+@use "./variables" as *;
+
+@mixin text-body() {
+  font-family: $font-family;
+  font-size: $fs-body;
+  line-height: $lh-normal;
+  font-weight: $fw-regular;
+}
+
+@mixin title-hero() {
+  font-family: $font-family;
+  font-size: $fs-hero;
+  font-weight: $fw-black;
+  line-height: $lh-tight;
+  letter-spacing: -0.04em;
+}
+
+@mixin text-hero() {
+  font-family: $font-family;
+  font-size: $fs-body;
+  font-weight: $fw-normal;
+  color: $color-gray;
+  line-height: $lh-relaxed;
+
+  @media (min-width: $bp-md) {
+    font-size: 1.125rem;
+  }
+}
+
+@mixin title-project() {
+  font-family: $font-family;
+  font-size: clamp(4rem, 15vw, 14rem);
+  font-weight: $fw-black;
+  line-height: $lh-tight;
+  letter-spacing: -0.04em;
+}
+
+@mixin title-section() {
+  font-family: $font-family;
+  font-size: $fs-section-title;
+  font-weight: $fw-bold;
+  letter-spacing: -0.03em;
+}

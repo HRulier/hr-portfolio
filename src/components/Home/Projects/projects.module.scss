@@ -1,0 +1,57 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/font_mixins" as *;
+@use "@/styles/animations_mixins" as *;
+@use "@/styles/variables" as *;
+
+.projects {
+  position: relative;
+  overflow: visible;
+  .wrapper {
+    position: relative;
+    height: 300vh;
+    overflow: visible;
+
+    .sticky {
+      position: sticky;
+      top: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: calc(100vh - 90px);
+      overflow-x: hidden;
+
+      .content {
+        display: flex;
+        justify-content: flex-start;
+        gap: $sp-xxl;
+        padding: 0 1.5rem 0 1.5rem;
+
+        @media (min-width: $bp-md) {
+          padding: 0 3rem 0 3rem;
+        }
+
+        .header {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          transform: translateY(100%);
+          &.visible {
+            @include slideUp();
+          }
+
+          h2 {
+            @include title-project();
+            margin-right: $sp-xl;
+            @media (min-width: $bp-md) {
+              margin-right: $sp-xxl;
+            }
+          }
+        }
+
+        .project {
+          width: clamp(450px, 45vw, 600px);
+        }
+      }
+    }
+  }
+}

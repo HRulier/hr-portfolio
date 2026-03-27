@@ -1,0 +1,42 @@
+@use "./variables" as *;
+
+@mixin slideUp() {
+  animation: slideUp $duration-slower;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
+
+@mixin slideDown() {
+  animation: slideDown $duration-fast ease;
+  animation-iteration-count: 1;
+  animation-direction: forward;
+
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
+
+@mixin fadeIn() {
+  opacity: 0;
+  animation: fadeIn $duration-slower $ease-default forwards $duration-slower;
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+}
