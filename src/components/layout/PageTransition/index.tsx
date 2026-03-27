@@ -51,10 +51,12 @@ const usePathnameWithHash = () => {
   const [hash, setHash] = useState("");
 
   useEffect(() => {
-    const onHashChange = () => setHash(window.location.hash);
-    onHashChange();
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
+    const update = () => setHash(window.location.hash);
+    update();
+    window.addEventListener("hashchange", update);
+    return () => {
+      window.removeEventListener("hashchange", update);
+    };
   }, [pathname]);
 
   return pathname + hash;

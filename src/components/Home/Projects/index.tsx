@@ -3,21 +3,9 @@ import { useEffect, useRef } from "react";
 import { useStickyScroll } from "@/hooks/useStickyScroll";
 import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 import MoreProjects from "./MoreProjects";
+import ProjectCard from "@/components/shared/ProjectCard";
 import projects from "@/data/projects.json";
 import styles from "./projects.module.scss";
-
-interface Project {
-  id: number;
-  featured?: boolean;
-  title: string;
-  subtitle: string;
-  description: string;
-  tags: string[];
-  image: {
-    src: string;
-    alt: string;
-  };
-}
 
 export default function Projects() {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -48,25 +36,13 @@ export default function Projects() {
             >
               <h2>Projets </h2>
             </div>
-
             {projects
-              .filter((project: Project) => project.featured)
-              .map((project: Project) => (
-                <article key={project.id} className={styles.project}>
-                  <div className={styles.image}>
-                    <img src={project.image.src} alt={project.image.alt} />
-                  </div>
-                  <h3>{project.title}</h3>
-                  <h4>{project.subtitle}</h4>
-                  <p>{project.description}</p>
-                  <ul>
-                    {project.tags.map((tag, index) => (
-                      <li key={index}>{tag}</li>
-                    ))}
-                  </ul>
-                </article>
+              .filter((project) => project.featured)
+              .map((project) => (
+                <div className={styles.project} key={project.id}>
+                  <ProjectCard project={project} />
+                </div>
               ))}
-
             <MoreProjects />
           </div>
         </div>

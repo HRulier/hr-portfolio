@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.scss";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { TransitionProvider } from "@/components/PageTransition";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { TransitionProvider } from "@/components/layout/PageTransition";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -35,7 +35,10 @@ export default function RootLayout({
   return (
     <html lang="fr">
       {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-      <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+      <script
+        src="https://mcp.figma.com/mcp/html-to-design/capture.js"
+        async
+      ></script>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
       <body className={`${inter.variable} ${jetbrainsMono.variable}`}>

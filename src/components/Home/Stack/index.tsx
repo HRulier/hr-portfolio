@@ -89,7 +89,7 @@ export default function Stack() {
               Intégration pixel-perfect, documentation API et déploiement CI/CD.
             </p>
             <div className={styles.badge}>
-              <span className={styles.number}>7+</span>
+              <span className={styles.number}>9+</span>
               <span>ANNÉES D&apos;EXPÉRIENCE</span>
             </div>
           </div>

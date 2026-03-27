@@ -2,7 +2,7 @@
 @use "@/styles/font_mixins" as *;
 @use "@/styles/animations_mixins" as *;
 
-.projects {
+.pageProjects {
   padding-top: 90px;
 
   section {
@@ -47,6 +47,21 @@
       color: $color-gray;
       @include fadeIn();
       animation-delay: 0.7s;
+    }
+  }
+
+  .projects {
+    padding: 0 1.5rem;
+
+    @media (min-width: $bp-md) {
+      padding: 0 3rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(400px, 1fr) minmax(400px, 1fr);
+      gap: $sp-xxl;
+      padding-bottom: $sp-xxl;
     }
   }
 }

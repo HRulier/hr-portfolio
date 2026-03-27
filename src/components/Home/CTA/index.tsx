@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import useMousePosition from "@/hooks/useMousePosition";
-import { TransitionLink } from "@/components/PageTransition";
+import { TransitionLink } from "@/components/layout/PageTransition";
 import styles from "./cta.module.scss";
 
 // const LERP = 0.12;

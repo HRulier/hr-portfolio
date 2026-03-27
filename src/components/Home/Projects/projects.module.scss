@@ -22,7 +22,6 @@
 
       .content {
         display: flex;
-        // align-items: center;
         justify-content: flex-start;
         gap: $sp-xxl;
         padding: 0 1.5rem 0 1.5rem;
@@ -32,6 +31,9 @@
         }
 
         .header {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
           transform: translateY(100%);
           &.visible {
             @include slideUp();
@@ -47,71 +49,9 @@
         }
 
         .project {
-          flex: 0 0 auto;
-          display: flex;
-          flex-direction: column;
-          gap: $sp-sm;
           width: clamp(450px, 45vw, 600px);
-
-          .image {
-            margin-bottom: $sp-md;
-          }
-
-          h3 {
-            font-size: $fs-project-title;
-            font-weight: $fw-semibold;
-            color: $color-black;
-          }
-
-          h4 {
-            font-size: 1rem;
-            font-weight: $fw-semibold;
-            color: $color-tonic;
-          }
-
-          p {
-            @include text-body();
-            font-size: $fs-label;
-            color: $color-gray;
-            margin: 0;
-          }
-
-          ul {
-            display: flex;
-            gap: $sp-xs;
-            margin: 0;
-            li {
-              display: block;
-              font-size: $fs-tag;
-              font-weight: $fw-medium;
-              color: $color-black;
-              background-color: $color-white;
-              border: solid 1px $color-light-gray;
-              padding: $sp-xs;
-            }
-          }
         }
       }
     }
   }
-
-  // .content {
-  //   position: sticky;
-  //   top: 0;
-  //   max-width: 1400px;
-  //   margin: 0 auto;
-  //   width: 100%;
-
-  //   height: 100vh;
-  //   background-color: red;
-
-  //   position: sticky;
-  //   top: 80px;
-  //   height: calc(100vh - 80px);
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   overflow: hidden;
-  //   padding: 2rem 0;
-  // }
 }
