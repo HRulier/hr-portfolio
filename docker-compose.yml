@@ -8,6 +8,7 @@ services:
       - .env
     environment:
       - NODE_ENV=production
+    network_mode: "bridge"
     dns:
       - 8.8.8.8
       - 1.1.1.1
