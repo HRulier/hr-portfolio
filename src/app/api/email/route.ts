@@ -13,7 +13,7 @@ export async function POST(request: Request) {
       {
         status: 429,
         headers: { "X-RateLimit-Remaining": "0" },
-      }
+      },
     );
   }
 
@@ -26,10 +26,17 @@ export async function POST(request: Request) {
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return Response.json({ error: "Format d'email invalide" }, { status: 400 });
+      return Response.json(
+        { error: "Format d'email invalide" },
+        { status: 400 },
+      );
     }
 
     const resend = new Resend(process.env.RESEND_APIKEY);
+
+    console.log(process.env.RESEND_APIKEY);
+    console.log(process.env.EMAIL_TO);
+    console.log(process.env.NOREPLY);
 
     const [{ error: confirmationError }, { error: notificationError }] =
       await Promise.all([
