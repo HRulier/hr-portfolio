@@ -5,6 +5,7 @@ import "./globals.scss";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { TransitionProvider } from "@/components/layout/PageTransition";
+import DevBanner from "@/components/layout/DevBanner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -42,6 +43,7 @@ export default function RootLayout({
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
       <body className={`${inter.variable} ${jetbrainsMono.variable}`}>
+        <DevBanner />
         <TransitionProvider>
           <Header />
           {children}

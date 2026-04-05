@@ -4,20 +4,38 @@
 
 .hero {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   padding: $sp-section 1.5rem;
   overflow: hidden;
+
+  @media (min-width: $bp-sm) {
+    padding: $sp-section-lg 1.5rem;
+  }
 
   @media (min-width: $bp-md) {
     padding: $sp-section-lg 3rem;
   }
+
+  @media (min-width: $bp-lg) {
+    justify-content: center;
+  }
+
   .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 0.5;
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
+
+    @media (min-width: $bp-sm) {
+      flex: initial;
+      justify-content: flex-start;
+    }
   }
 
   h2 {
@@ -26,8 +44,13 @@
 
   .content .title {
     @include title-hero();
-    margin-bottom: $sp-lg;
+    margin-bottom: $sp-md;
     overflow: hidden;
+
+    @media (min-width: $bp-sm) {
+      margin-bottom: $sp-lg;
+    }
+
     .line {
       position: relative;
       display: block;
@@ -51,14 +74,26 @@
   }
 
   .bottom {
-    position: absolute;
-    bottom: 6rem;
-    left: $sp-xl;
-    right: $sp-xl;
     display: flex;
+    flex: 1;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: flex-end;
+    gap: $sp-lg;
     @include fadeIn();
+
+    @media (min-width: $bp-md) {
+      flex: initial;
+    }
+
+    @media (min-width: $bp-lg) {
+      position: absolute;
+      bottom: 6rem;
+      left: $sp-xl;
+      right: $sp-xl;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
 
     .text {
       @include text-hero();
@@ -69,8 +104,13 @@
     .meta {
       display: flex;
       flex-direction: column;
-      gap: $sp-md;
-      text-align: right;
+      gap: $sp-xs;
+      text-transform: uppercase;
+
+      @media (min-width: $bp-lg) {
+        text-align: right;
+        gap: $sp-md;
+      }
 
       span {
         display: block;
@@ -94,7 +134,7 @@
     position: absolute;
     bottom: $sp-lg;
     left: $sp-xl;
-    display: none;
+    display: flex;
     align-items: center;
     gap: $sp-sm;
     font-size: $fs-tag;
@@ -121,10 +161,6 @@
         background: $color-tonic;
         animation: scrollPulse 2s ease-in-out infinite;
       }
-    }
-
-    @media (min-width: $bp-md) {
-      display: flex;
     }
   }
 

@@ -23,11 +23,11 @@ export default function Hero() {
         <div className={styles.meta}>
           <div>
             <span className={styles.label}>BASÉ À</span>
-            <span>PARIS, FR</span>
+            <span>NANTES, FR</span>
           </div>
           <div>
             <span className={styles.label}>DISPONIBLE</span>
-            <span>MAINTENANT</span>
+            <span>Ouvert aux opportunités CDI</span>
           </div>
         </div>
       </div>
