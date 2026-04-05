@@ -15,8 +15,12 @@
 
   .hero {
     position: relative;
-    padding: $sp-section 1.5rem;
+    padding: 3rem 1.5rem;
     overflow: hidden;
+
+    @media (min-width: $bp-sm) {
+      padding: $sp-section 1.5rem;
+    }
 
     @media (min-width: $bp-md) {
       padding: 6rem 3rem 4rem;
@@ -59,9 +63,18 @@
 
     .grid {
       display: grid;
-      grid-template-columns: minmax(400px, 1fr) minmax(400px, 1fr);
-      gap: $sp-xxl;
+      gap: $sp-lg;
+      max-width: 800px;
       padding-bottom: $sp-xxl;
+
+      @media (min-width: $bp-md) {
+        gap: $sp-xxl;
+      }
+
+      @media (min-width: $bp-lg) {
+        max-width: initial;
+        grid-template-columns: minmax(400px, 1fr) minmax(400px, 1fr);
+      }
     }
   }
 }
