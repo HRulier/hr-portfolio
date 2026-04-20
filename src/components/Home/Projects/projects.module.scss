@@ -13,12 +13,16 @@
 
     .sticky {
       position: sticky;
-      top: 90px;
+      top: 70px;
       display: flex;
       align-items: center;
       justify-content: flex-start;
       height: calc(100vh - 90px);
-      overflow-x: hidden;
+      overflow: hidden;
+
+      @media (min-width: $bp-md) {
+        top: 90px;
+      }
 
       .content {
         display: flex;
