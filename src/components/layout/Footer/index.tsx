@@ -14,11 +14,11 @@ const Footer = () => {
           <div className={styles.contactLinks}>
             <label>Retrouvez-moi</label>
 
-            <a href="#">
+            <a href="https://www.linkedin.com/in/hugo-rulier/">
               <FaLinkedin size={24} />
               <span>Linkedin</span>
             </a>
-            <a href="#">
+            <a href="https://github.com/HRulier">
               <FaGithub size={24} />
               <span>GitHub</span>
             </a>

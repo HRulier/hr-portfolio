@@ -86,7 +86,8 @@ export default function Stack() {
               et l&apos;expérience utilisateur.
             </p>
             <p>
-              Intégration pixel-perfect, documentation API et déploiement CI/CD.
+              Intégration pixel-perfect, documentation API et déploiement
+              automatisé.
             </p>
             <div className={styles.badge}>
               <span className={styles.number}>9+</span>
