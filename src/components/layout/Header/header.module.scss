@@ -23,7 +23,7 @@
     font-family: $font-family;
     font-size: $fs-logo;
     font-weight: $fw-bold;
-    line-height: $lh-tight;
+    line-height: $lh-snug;
     // letter-spacing: -0.04em;
     // letter-spacing: $ls-wide;
     .dot {
@@ -40,7 +40,7 @@
       display: inline-block;
       // margin: 0 $sp-sm;
 
-      &:not(:last-child) {
+      &:not(:nth-child(n + 3)) {
         display: none;
 
         @media (min-width: $bp-md) {
@@ -48,7 +48,7 @@
         }
       }
 
-      &:last-child {
+      &:nth-child(n + 3) {
         display: inline-block;
       }
 
@@ -63,6 +63,17 @@
         &:not(.cta):hover {
           transition: color 0.3s ease;
           color: $color-tonic;
+        }
+      }
+
+      .download {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+          position: relative;
+          top: 2px;
+          margin-right: 3px;
         }
       }
 

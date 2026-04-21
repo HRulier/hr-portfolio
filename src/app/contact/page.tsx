@@ -22,11 +22,11 @@ export default function Contact() {
             <div className={styles.contact}>
               <label>Retrouvez-moi</label>
               <div className={styles.contactLinks}>
-                <a href="#">
+                <a href="https://www.linkedin.com/in/hugo-rulier/">
                   <FaLinkedin size={24} />
                   <span>Linkedin</span>
                 </a>
-                <a href="#">
+                <a href="https://github.com/HRulier">
                   <FaGithub size={24} />
                   <span>GitHub</span>
                 </a>

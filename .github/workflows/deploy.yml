@@ -3,7 +3,7 @@ name: Deploy Portfolio
 on:
   push:
     branches:
-      - development
+      - main
 
 jobs:
   deploy:
@@ -28,5 +28,5 @@ jobs:
           ssh -o StrictHostKeyChecking=no -p $SSH_PORT $SERVER_USER@$SERVER_IP "
             cd $APP_DIR &&
             git pull origin development &&
-            docker compose -f docker-compose.yml up --build -d api
+            docker compose up --build -d
           "

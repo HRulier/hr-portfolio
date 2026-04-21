@@ -1,0 +1,84 @@
+@use "@/styles/variables" as *;
+
+.wrapper {
+  position: fixed;
+  left: 50%;
+  bottom: $sp-sm;
+  transform: translate(-50%, 0);
+  max-width: 440px;
+  width: 100%;
+  z-index: $z-navbar + 1;
+  padding: 0 $sp-lg;
+
+  animation: slideUpBanner $duration-fast ease forwards;
+
+  @keyframes slideUpBanner {
+    0% {
+      transform: translate(-50%, 150%);
+    }
+    100% {
+      transform: translate(-50%, 0);
+    }
+  }
+}
+
+.banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $sp-sm $sp-xl;
+  background-color: $color-tonic;
+  color: $color-white;
+}
+
+.shake {
+  animation: shake 0.6s ease;
+
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    15% {
+      transform: translateX(-6px) rotate(-1deg);
+    }
+    30% {
+      transform: translateX(6px) rotate(1deg);
+    }
+    45% {
+      transform: translateX(-4px) rotate(-0.5deg);
+    }
+    60% {
+      transform: translateX(4px) rotate(0.5deg);
+    }
+    75% {
+      transform: translateX(-2px);
+    }
+  }
+}
+
+.message {
+  font-size: $fs-label;
+  font-weight: $fw-medium;
+  text-align: center;
+  margin: 0;
+}
+
+.close {
+  position: absolute;
+  right: $sp-sm;
+  background: none;
+  border: none;
+  color: $color-white;
+  cursor: pointer;
+  font-size: $fs-body;
+  line-height: 1;
+  padding: $sp-xs;
+  opacity: 0.8;
+  transition: opacity $duration-fast $ease-default;
+
+  &:hover {
+    opacity: 1;
+  }
+}
