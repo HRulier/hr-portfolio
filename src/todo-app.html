@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App — HR.DEV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #f0ebe6;
+        --tonic: #212be8;
+        --black: #0a0a0a;
+        --white: #ffffff;
+        --gray: #6b6b6b;
+        --light-gray: #d4d0cb;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background: var(--bg);
+        color: var(--black);
+        line-height: 1.6;
+      }
+
+      /* ========== NAVBAR ========== */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1.5rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--bg);
+        border-bottom: 1px solid var(--light-gray);
+        animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      @keyframes slideDown {
+        from {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .logo {
+        font-size: 1.25rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--black);
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--black);
+        font-size: 0.875rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--tonic);
+      }
+
+      .btn-contact {
+        background: var(--tonic);
+        padding: 0.75rem 1.5rem;
+        border-radius: 0;
+        text-decoration: none;
+        font-size: 0.875rem;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-links a.btn-contact {
+        color: #ffffff !important;
+      }
+
+      .btn-contact:hover {
+        background: var(--black);
+        transform: translateY(-2px);
+      }
+
+      /* ========== BACK LINK ========== */
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--gray);
+        text-decoration: none;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        margin-bottom: 2rem;
+      }
+
+      .back-link:hover {
+        color: var(--tonic);
+      }
+
+      .back-link svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      /* ========== HERO PROJECT ========== */
+      .project-hero {
+        padding: 10rem 3rem 4rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .project-tag {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--tonic);
+        margin-bottom: 1.5rem;
+        opacity: 0;
+        animation: fadeIn 1s ease forwards 0.3s;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      .project-title-wrapper {
+        overflow: hidden;
+        margin-bottom: 2rem;
+      }
+
+      .project-title {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        transform: translateY(100%);
+        animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+      }
+
+      @keyframes slideUp {
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      .project-intro {
+        font-size: 1.25rem;
+        color: var(--gray);
+        line-height: 1.7;
+        max-width: 800px;
+        opacity: 0;
+        animation: fadeIn 1s ease forwards 0.6s;
+      }
+
+      /* ========== CTA BUTTONS ========== */
+      .project-ctas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 3rem;
+        opacity: 0;
+        animation: fadeIn 1s ease forwards 0.8s;
+      }
+
+      .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.875rem 1.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid var(--light-gray);
+        background: var(--white);
+        color: var(--black);
+        transition: all 0.3s ease;
+      }
+
+      .cta-btn:hover {
+        border-color: var(--tonic);
+        color: var(--tonic);
+        transform: translateY(-2px);
+      }
+
+      .cta-btn.primary {
+        background: var(--tonic);
+        border-color: var(--tonic);
+        color: var(--white);
+      }
+
+      .cta-btn.primary:hover {
+        background: var(--black);
+        border-color: var(--black);
+        color: var(--white);
+      }
+
+      .cta-btn svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      /* ========== STACK SECTION ========== */
+      .stack-section {
+        padding: 4rem 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--tonic);
+        margin-bottom: 1.5rem;
+      }
+
+      .stack-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+
+      .stack-column h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--black);
+      }
+
+      .tags-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 0.375rem 0.75rem;
+        background: var(--white);
+        border: 1px solid var(--light-gray);
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: var(--black);
+        font-family: "JetBrains Mono", monospace;
+        transition: all 0.3s ease;
+      }
+
+      .tag:hover {
+        border-color: var(--tonic);
+        color: var(--tonic);
+      }
+
+      /* ========== MAIN FEATURE SECTION (Slack/IA) ========== */
+      .feature-section {
+        padding: 6rem 3rem;
+        background: var(--white);
+        border-top: 1px solid var(--light-gray);
+        border-bottom: 1px solid var(--light-gray);
+      }
+
+      .feature-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .feature-header {
+        margin-bottom: 4rem;
+      }
+
+      .feature-title {
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        margin-bottom: 1rem;
+      }
+
+      .feature-subtitle {
+        font-size: 1.125rem;
+        color: var(--gray);
+        max-width: 700px;
+        line-height: 1.7;
+      }
+
+      /* Image placeholder */
+      .image-placeholder {
+        background: var(--bg);
+        border: 2px dashed var(--light-gray);
+        border-radius: 8px;
+        padding: 3rem;
+        text-align: center;
+        margin: 3rem 0;
+      }
+
+      .image-placeholder-text {
+        color: var(--gray);
+        font-size: 0.875rem;
+        font-style: italic;
+      }
+
+      .feature-block {
+        margin-bottom: 4rem;
+      }
+
+      .feature-block h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--black);
+      }
+
+      .feature-block p {
+        font-size: 1rem;
+        color: var(--gray);
+        line-height: 1.8;
+        max-width: 800px;
+      }
+
+      .feature-block strong {
+        color: var(--black);
+        font-weight: 600;
+      }
+
+      /* Guarantees Grid */
+      .guarantees-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .guarantee-card {
+        background: var(--bg);
+        padding: 1.5rem;
+        border-left: 3px solid var(--tonic);
+      }
+
+      .guarantee-card h4 {
+        font-size: 0.875rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: var(--black);
+      }
+
+      .guarantee-card p {
+        font-size: 0.8125rem;
+        color: var(--gray);
+        line-height: 1.6;
+      }
+
+      .guarantee-card code {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        background: var(--white);
+        padding: 0.125rem 0.375rem;
+        border-radius: 3px;
+      }
+
+      /* ========== TECHNICAL SECTIONS (Compact) ========== */
+      .technical-section {
+        padding: 4rem 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        border-bottom: 1px solid var(--light-gray);
+      }
+
+      .technical-section:last-of-type {
+        border-bottom: none;
+      }
+
+      .technical-title {
+        font-size: 1.125rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--black);
+      }
+
+      .technical-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .technical-block h4 {
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--black);
+      }
+
+      .technical-block p {
+        font-size: 0.875rem;
+        color: var(--gray);
+        line-height: 1.7;
+      }
+
+      .technical-single p {
+        font-size: 0.9375rem;
+        color: var(--gray);
+        line-height: 1.8;
+        max-width: 800px;
+      }
+
+      /* ========== EVOLUTIONS SECTION ========== */
+      .evolutions-section {
+        padding: 4rem 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .evolutions-wrapper {
+        background: linear-gradient(
+          135deg,
+          rgba(33, 43, 232, 0.03) 0%,
+          rgba(33, 43, 232, 0.08) 100%
+        );
+        border: 1px solid rgba(33, 43, 232, 0.15);
+        border-radius: 8px;
+        padding: 2.5rem;
+      }
+
+      .evolutions-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+      }
+
+      .evolutions-icon {
+        width: 24px;
+        height: 24px;
+        color: var(--tonic);
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      .evolutions-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--tonic);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .evolutions-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .evolution-item h4 {
+        font-size: 0.9375rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--black);
+      }
+
+      .evolution-item p {
+        font-size: 0.875rem;
+        color: var(--gray);
+        line-height: 1.7;
+      }
+
+      /* ========== FOOTER ========== */
+      footer {
+        padding: 2rem 3rem;
+        border-top: 1px solid var(--light-gray);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-logo {
+        font-size: 1rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      .footer-copyright {
+        font-size: 0.75rem;
+        color: var(--gray);
+      }
+
+      /* ========== RESPONSIVE ========== */
+      @media (max-width: 1024px) {
+        .guarantees-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .technical-content {
+          grid-template-columns: 1fr;
+        }
+
+        .evolutions-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          padding: 1rem 1.5rem;
+        }
+
+        .nav-links a:not(.btn-contact) {
+          display: none;
+        }
+
+        .project-hero {
+          padding: 8rem 1.5rem 3rem;
+        }
+
+        .stack-section,
+        .technical-section,
+        .evolutions-section {
+          padding: 3rem 1.5rem;
+        }
+
+        .feature-section {
+          padding: 4rem 1.5rem;
+        }
+
+        .stack-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .guarantees-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .project-ctas {
+          flex-direction: column;
+        }
+
+        .cta-btn {
+          justify-content: center;
+        }
+
+        footer {
+          flex-direction: column;
+          gap: 1rem;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav>
+      <a href="portfolio.html" class="logo">HR.DEV</a>
+      <div class="nav-links">
+        <a href="portfolio.html#projets">Projets</a>
+        <a href="portfolio.html#competences">Compétences</a>
+        <a href="contact.html" class="btn-contact">Contact</a>
+      </div>
+    </nav>
+
+    <main>
+      <!-- HERO -->
+      <section class="project-hero">
+        <a href="portfolio.html#projets" class="back-link">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="19" y1="12" x2="5" y2="12" />
+            <polyline points="12 19 5 12 12 5" />
+          </svg>
+          Retour aux projets
+        </a>
+
+        <span class="project-tag">Projet personnel</span>
+
+        <div class="project-title-wrapper">
+          <h1 class="project-title">Todo App</h1>
+        </div>
+
+        <p class="project-intro">
+          Un gestionnaire de tâches, oui — mais surtout un projet conçu pour
+          montrer comment je construis une application de bout en bout : API
+          typée et documentée, authentification multi-stratégies, pipeline CI/CD
+          conteneurisé, et une intégration Slack pilotée par IA qui permet de
+          créer des tâches en langage naturel.
+        </p>
+
+        <div class="project-ctas">
+          <a
+            href="https://todo-app.loopness.fr/signin"
+            target="_blank"
+            rel="noopener"
+            class="cta-btn primary"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+              />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+            Voir l'application
+          </a>
+          <a
+            href="https://api.todo-app.loopness.fr/api-docs/"
+            target="_blank"
+            rel="noopener"
+            class="cta-btn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+              />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
+            Documentation API
+          </a>
+          <a
+            href="https://github.com/HRulier/todo-web-front"
+            target="_blank"
+            rel="noopener"
+            class="cta-btn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+            Front-end
+          </a>
+          <a
+            href="https://github.com/HRulier/todo-api"
+            target="_blank"
+            rel="noopener"
+            class="cta-btn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+            API
+          </a>
+        </div>
+      </section>
+
+      <!-- STACK TECHNIQUE -->
+      <section class="stack-section">
+        <span class="section-label">Stack technique</span>
+        <div class="stack-grid">
+          <div class="stack-column">
+            <h3>Back-end</h3>
+            <div class="tags-list">
+              <span class="tag">Node.js v22</span>
+              <span class="tag">TypeScript 5.7</span>
+              <span class="tag">Express 4</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Mongoose 8</span>
+              <span class="tag">Passport.js</span>
+              <span class="tag">Zod 3</span>
+              <span class="tag">Swagger UI</span>
+              <span class="tag">Jest</span>
+              <span class="tag">Supertest</span>
+              <span class="tag">Resend</span>
+              <span class="tag">React Email</span>
+              <span class="tag">Docker</span>
+              <span class="tag">GitHub Actions</span>
+            </div>
+          </div>
+          <div class="stack-column">
+            <h3>Front-end</h3>
+            <div class="tags-list">
+              <span class="tag">React 19</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Vite + SWC</span>
+              <span class="tag">React Router v7</span>
+              <span class="tag">TanStack Query v5</span>
+              <span class="tag">React Hook Form</span>
+              <span class="tag">Axios</span>
+              <span class="tag">SCSS Modules</span>
+              <span class="tag">Motion</span>
+              <span class="tag">ESLint</span>
+              <span class="tag">Prettier</span>
+              <span class="tag">Docker</span>
+              <span class="tag">GitHub Actions</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MAIN FEATURE: SLACK/IA -->
+      <section class="feature-section">
+        <div class="feature-content">
+          <div class="feature-header">
+            <h2 class="feature-title">
+              Création de tâches depuis Slack — agent IA + système d'approbation
+            </h2>
+            <p class="feature-subtitle">
+              Permettre à un utilisateur de créer des tâches en langage naturel
+              directement depuis Slack, sans ouvrir l'application.
+            </p>
+          </div>
+
+          <div class="feature-block">
+            <h3>L'idée</h3>
+            <p>
+              Un message comme
+              <em
+                >« J'aimerais cuisiner une carbonara dimanche, peux-tu me créer
+                une tâche pour aller faire les courses demain et une pour penser
+                à sortir une bouteille de vin avant le repas »</em
+              >
+              génère automatiquement les bonnes tâches aux bonnes dates.
+            </p>
+          </div>
+
+          <!-- Image placeholder: Capture Slack -->
+          <div class="image-placeholder">
+            <p class="image-placeholder-text">
+              📸 Capture Slack : message utilisateur + réponse du bot avec
+              boutons Approve/Deny
+            </p>
+          </div>
+
+          <div class="feature-block">
+            <h3>Comment ça marche</h3>
+            <p>
+              Le workflow est orchestré par <strong>n8n</strong>, un outil
+              d'automatisation open-source. Le choix de n8n plutôt qu'un script
+              maison est délibéré : n8n permet de brancher facilement d'autres
+              sources de messagerie (Discord, Teams, webhook générique) sans
+              réécrire la logique d'orchestration.
+            </p>
+            <p style="margin-top: 1rem">
+              Quand un utilisateur envoie un message dans Slack, n8n le
+              réceptionne et le soumet d'abord à une IA qui modère le contenu.
+              Si le message est valide, l'IA le parse pour en extraire les
+              tâches pertinentes avec leurs dates. n8n envoie ensuite ces tâches
+              à l'API sous forme d'opération en attente, et un message
+              récapitulatif est posté dans Slack avec des boutons Approve /
+              Deny.
+            </p>
+          </div>
+
+          <div class="feature-block">
+            <h3>Architecture technique — le modèle Operation</h3>
+            <p>
+              Plutôt que d'exposer directement l'endpoint de création de tâches
+              aux systèmes externes, l'API utilise un modèle intermédiaire
+              <code>Operation</code>. Chaque opération est stockée avec un
+              statut <code>pending</code> et ne produit aucun effet tant qu'elle
+              n'est pas explicitement approuvée.
+            </p>
+          </div>
+
+          <div class="guarantees-grid">
+            <div class="guarantee-card">
+              <h4>Sécurité</h4>
+              <p>
+                Endpoints protégés par API Key (<code>X-API-Key</code>), séparés
+                des endpoints utilisateur. Payload validé contre le schéma
+                <code>CreateTaskSchema</code> dès l'ingestion.
+              </p>
+            </div>
+            <div class="guarantee-card">
+              <h4>Non-rejouabilité</h4>
+              <p>
+                L'approbation utilise
+                <code>findOneAndUpdate({ shortId, status: "pending" })</code>.
+                Une opération déjà traitée ne peut pas être rejouée.
+              </p>
+            </div>
+            <div class="guarantee-card">
+              <h4>Traçabilité</h4>
+              <p>
+                Chaque opération conserve l'intégralité du contexte : source,
+                canal, utilisateur, horodatage, payload original. L'audit est
+                natif.
+              </p>
+            </div>
+            <div class="guarantee-card">
+              <h4>Extensibilité</h4>
+              <p>
+                Ajouter une nouvelle source (Discord, Teams) se résume à
+                enrichir l'enum <code>source</code> et brancher un nouveau
+                workflow n8n.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ARCHITECTURE -->
+      <section class="technical-section">
+        <h2 class="technical-title">Architecture</h2>
+        <div class="technical-content">
+          <div class="technical-block">
+            <h4>API</h4>
+            <p>
+              Architecture en couches stricte (routes → controllers → services →
+              models). Les schémas Zod assurent validation des requêtes et
+              génération automatique de la documentation OpenAPI. Endpoints
+              couverts par tests d'intégration.
+            </p>
+          </div>
+          <div class="technical-block">
+            <h4>Client</h4>
+            <p>
+              Même logique de séparation : fonctions HTTP pures
+              (<code>src/api/</code>), wrappées par des hooks TanStack Query
+              pour le cache et l'invalidation, consommées par les composants
+              sans couplage au transport.
+            </p>
+          </div>
+        </div>
+        <!-- Image placeholders -->
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+          "
+        >
+          <div class="image-placeholder" style="margin: 0">
+            <p class="image-placeholder-text">📸 Schéma d'architecture API</p>
+          </div>
+          <div class="image-placeholder" style="margin: 0">
+            <p class="image-placeholder-text">📸 Capture Swagger UI</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SÉCURITÉ -->
+      <section class="technical-section">
+        <h2 class="technical-title">Sécurité et authentification</h2>
+        <div class="technical-single">
+          <p>
+            Quatre stratégies Passport.js (email/mot de passe, Google OAuth2,
+            Slack OAuth2), access tokens JWT en Bearer, refresh tokens en cookie
+            HttpOnly (Secure + SameSite), protection CSRF via state OAuth encodé
+            en base64url, rate limiting sur les endpoints sensibles, et
+            hiérarchie d'erreurs typées avec handler centralisé.
+          </p>
+        </div>
+      </section>
+
+      <!-- INFRASTRUCTURE -->
+      <section class="technical-section">
+        <h2 class="technical-title">Infrastructure et outillage</h2>
+        <div class="technical-content">
+          <div class="technical-block">
+            <h4>Emails</h4>
+            <p>
+              Templates React rendues côté serveur, envoyées via Resend,
+              prévisualisables en développement avec
+              <code>@react-email/preview-server</code>.
+            </p>
+          </div>
+          <div class="technical-block">
+            <h4>Déploiement</h4>
+            <p>
+              Docker multi-stage (image allégée, utilisateur non-root), CI/CD
+              GitHub Actions via SSH, reverse proxy Nginx avec SSL sur VPS
+              Ubuntu.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ÉVOLUTIONS -->
+      <section class="evolutions-section">
+        <div class="evolutions-wrapper">
+          <div class="evolutions-header">
+            <svg
+              class="evolutions-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            <span class="evolutions-title">Évolutions en cours</span>
+          </div>
+          <div class="evolutions-grid">
+            <div class="evolution-item">
+              <h4>Serveur MCP</h4>
+              <p>
+                Exposer la gestion de tâches comme outils utilisables par les
+                assistants IA (Claude, ChatGPT), permettant de créer et
+                consulter ses tâches directement depuis une interface de chat.
+              </p>
+            </div>
+            <div class="evolution-item">
+              <h4>Cluster MongoDB</h4>
+              <p>
+                Migration vers un replica set pour activer les transactions et
+                garantir l'atomicité des opérations composées (ex. approbation
+                bulk avec rollback en cas d'erreur partielle).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <span class="footer-logo">HR.DEV</span>
+      <span class="footer-copyright">© 2024 — Tous droits réservés</span>
+    </footer>
+
+    <script>
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      // Observe sections for fade-in
+      document
+        .querySelectorAll(
+          ".stack-section, .feature-section, .technical-section, .evolutions-section",
+        )
+        .forEach((section) => {
+          observer.observe(section);
+        });
+    </script>
+  </body>
+</html>

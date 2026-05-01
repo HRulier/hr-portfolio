@@ -62,4 +62,17 @@
       padding: $sp-xs;
     }
   }
+
+  .detailLink {
+    display: inline-flex;
+    align-items: center;
+    font-size: $fs-label;
+    font-weight: $fw-medium;
+    color: $color-tonic;
+    transition: letter-spacing $duration-fast ease;
+
+    &:hover {
+      letter-spacing: 0.02em;
+    }
+  }
 }

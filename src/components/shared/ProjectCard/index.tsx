@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { TransitionLink } from "@/components/layout/PageTransition";
 import styles from "./project-card.module.scss";
 
 interface Project {
@@ -13,6 +16,7 @@ interface Project {
     alt: string;
     aiGenerated?: boolean;
   };
+  href?: string;
 }
 
 const ProjectCard = ({ project }: { project: Project }) => (
@@ -40,6 +44,11 @@ const ProjectCard = ({ project }: { project: Project }) => (
         <li key={index}>{tag}</li>
       ))}
     </ul>
+    {project.href && (
+      <TransitionLink href={project.href} className={styles.detailLink}>
+        Voir le projet →
+      </TransitionLink>
+    )}
   </article>
 );
 

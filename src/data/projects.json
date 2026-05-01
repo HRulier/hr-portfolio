@@ -102,5 +102,26 @@
       "src": "/images/groupe-keran-event-1.png",
       "alt": "SCE Event — Plateforme de co-création synchronisée"
     }
+  },
+  {
+    "id": 8,
+    "number": "08",
+    "featured": true,
+    "title": "Todo App - Full-stack augmenté par l'IA",
+    "subtitle": "Projet personnel",
+    "description": "Gestionnaire de tâches full-stack conçu comme vitrine technique : API REST typée avec Zod et Swagger, authentification multi-stratégies (email, Google, Slack OAuth2), pipeline CI/CD conteneurisé et intégration Slack pilotée par IA pour créer des tâches en langage naturel.",
+    "tags": [
+      "Node.js",
+      "TypeScript",
+      "React 19",
+      "MongoDB",
+      "Docker",
+      "GitHub Actions"
+    ],
+    "href": "/projects/todo-app",
+    "image": {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect fill='%23d4d0cb' width='800' height='500'/%3E%3Ctext x='400' y='300' text-anchor='middle' fill='%236b6b6b' font-family='Inter, sans-serif' font-size='24'%3EProjet%3C/text%3E%3C/svg%3E",
+      "alt": "Todo App — Full-stack TypeScript"
+    }
   }
 ]
