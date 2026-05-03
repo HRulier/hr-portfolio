@@ -3,8 +3,7 @@ import styles from "./todo-app.module.scss";
 
 export default function TodoApp() {
   return (
-    <div className={styles.pageProject}>
-      {/* HERO */}
+    <div className={styles.page}>
       <section className={styles.hero}>
         <div className={styles.content}>
           <TransitionLink href="/projects" className={styles.backLink}>
@@ -20,13 +19,10 @@ export default function TodoApp() {
             </svg>
             Retour aux projets
           </TransitionLink>
-
           <span className={styles.tag}>Projet personnel</span>
-
-          <div className={styles.titleWrapper}>
+          <div className={styles.title}>
             <h1>Todo App - augmenté par l&apos;IA</h1>
           </div>
-
           <p className={styles.intro}>
             Un gestionnaire de tâches, oui — mais surtout un projet conçu pour
             montrer comment je construis une application de bout en bout : API
@@ -34,7 +30,6 @@ export default function TodoApp() {
             CI/CD conteneurisé, et une intégration Slack pilotée par IA qui
             permet de créer des tâches en langage naturel.
           </p>
-
           <div className={styles.ctas}>
             <a
               href="https://todo-app.loopness.fr/signin"

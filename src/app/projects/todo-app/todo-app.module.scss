@@ -3,17 +3,15 @@
 @use "@/styles/font_mixins" as *;
 @use "@/styles/animations_mixins" as *;
 
-.pageProject {
+.page {
   padding-top: 90px;
 }
-
-// ── HERO ─────────────────────────────────────────────────────────────────────
 
 .hero {
   padding: 3rem 1.5rem;
 
   @media (min-width: $bp-md) {
-    padding: 4rem 3rem 3rem;
+    padding: 3rem;
   }
 
   .content {
@@ -44,19 +42,19 @@
 
   .tag {
     display: block;
-    font-size: $fs-tag;
+    font-size: $fs-regular;
     font-weight: $fw-medium;
     letter-spacing: $ls-widest;
     text-transform: uppercase;
     color: $color-tonic;
-    margin-bottom: $sp-md;
+    margin: $sp-md 0 0 0;
     @include fadeIn();
     animation-delay: 0.3s;
   }
 
-  .titleWrapper {
+  .title {
     overflow: hidden;
-    margin-bottom: $sp-lg;
+    margin-bottom: $sp-md;
 
     h1 {
       font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -134,8 +132,6 @@
   }
 }
 
-// ── STACK ─────────────────────────────────────────────────────────────────────
-
 .stackSection {
   padding: 3rem 1.5rem;
   border-top: 1px solid $color-light-gray;
@@ -151,7 +147,7 @@
 
   .sectionLabel {
     display: block;
-    font-size: $fs-tag;
+    font-size: $fs-regular;
     font-weight: $fw-medium;
     letter-spacing: $ls-widest;
     text-transform: uppercase;
@@ -171,7 +167,7 @@
 
     .stackColumn {
       h3 {
-        font-size: $fs-body;
+        font-size: $fs-regular;
         font-weight: $fw-semibold;
         margin-bottom: $sp-sm;
         color: $color-black;
@@ -202,8 +198,6 @@
     }
   }
 }
-
-// ── FEATURE SECTION ───────────────────────────────────────────────────────────
 
 .featureSection {
   padding: 4rem 1.5rem;
@@ -255,7 +249,7 @@
     }
 
     p {
-      font-size: $fs-body;
+      font-size: $fs-regular;
       color: $color-gray;
       line-height: $lh-loose;
       max-width: 800px;
@@ -326,8 +320,6 @@
   }
 }
 
-// ── TECHNICAL SECTIONS ────────────────────────────────────────────────────────
-
 .technicalSection {
   padding: 3rem 1.5rem;
   border-bottom: 1px solid $color-light-gray;
@@ -346,7 +338,7 @@
   }
 
   .technicalTitle {
-    font-size: 1.125rem;
+    font-size: $fs-subtitle;
     font-weight: $fw-semibold;
     margin-bottom: $sp-sm;
     color: $color-black;
@@ -453,7 +445,7 @@
     }
 
     .evolutionsTitle {
-      font-size: $fs-body;
+      font-size: $fs-regular;
       font-weight: $fw-semibold;
       color: $color-tonic;
       text-transform: uppercase;
