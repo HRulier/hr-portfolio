@@ -71,6 +71,12 @@
     color: $color-tonic;
     transition: letter-spacing $duration-fast ease;
 
+    .arrow {
+      width: 16px;
+      height: 16px;
+      margin-left: $sp-xs;
+    }
+
     &:hover {
       letter-spacing: 0.02em;
     }

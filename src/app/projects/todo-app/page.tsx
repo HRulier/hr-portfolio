@@ -162,7 +162,6 @@ export default function TodoApp() {
         </div>
       </section>
 
-      {/* SLACK / IA FEATURE */}
       <section className={styles.featureSection}>
         <div className={styles.content}>
           <div className={styles.featureHeader}>
@@ -181,9 +180,9 @@ export default function TodoApp() {
             <p>
               Un message comme{" "}
               <em>
-                « J&apos;aimerais cuisiner une carbonara dimanche, peux-tu me
-                créer une tâche pour aller faire les courses demain et une pour
-                penser à sortir une bouteille de vin avant le repas »
+                «J&apos;ai une réunion d&apos;équipe vendredi à 14h, crée-moi
+                une tâche pour préparer l&apos;ordre du jour jeudi et une pour
+                envoyer le compte-rendu lundi.»
               </em>{" "}
               génère automatiquement les bonnes tâches aux bonnes dates.
             </p>
