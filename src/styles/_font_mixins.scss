@@ -2,7 +2,7 @@
 
 @mixin text-body() {
   font-family: $font-family;
-  font-size: $fs-body;
+  font-size: $fs-regular;
   line-height: $lh-normal;
   font-weight: $fw-regular;
 }
@@ -17,7 +17,7 @@
 
 @mixin text-hero() {
   font-family: $font-family;
-  font-size: $fs-body;
+  font-size: $fs-regular;
   font-weight: $fw-normal;
   color: $color-gray;
   line-height: $lh-relaxed;

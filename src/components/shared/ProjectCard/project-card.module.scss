@@ -29,7 +29,7 @@
   }
 
   h3 {
-    font-size: $fs-project-title;
+    font-size: $fs-subtitle;
     font-weight: $fw-semibold;
     color: $color-black;
   }
@@ -60,6 +60,25 @@
       background-color: $color-white;
       border: solid 1px $color-light-gray;
       padding: $sp-xs;
+    }
+  }
+
+  .detailLink {
+    display: inline-flex;
+    align-items: center;
+    font-size: $fs-label;
+    font-weight: $fw-medium;
+    color: $color-tonic;
+    transition: letter-spacing $duration-fast ease;
+
+    .arrow {
+      width: 16px;
+      height: 16px;
+      margin-left: $sp-xs;
+    }
+
+    &:hover {
+      letter-spacing: 0.02em;
     }
   }
 }

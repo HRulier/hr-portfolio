@@ -1,5 +1,26 @@
 [
   {
+    "id": 8,
+    "number": "08",
+    "featured": true,
+    "title": "Todo App - Full-stack augmenté par l'IA",
+    "subtitle": "Projet personnel",
+    "description": "Gestionnaire de tâches full-stack conçu comme vitrine technique : API REST typée avec Zod et Swagger, authentification multi-stratégies (email, Google, Slack OAuth2), pipeline CI/CD conteneurisé et intégration Slack pilotée par IA pour créer des tâches en langage naturel.",
+    "tags": [
+      "Node.js",
+      "TypeScript",
+      "React 19",
+      "MongoDB",
+      "Docker",
+      "GitHub Actions"
+    ],
+    "href": "/projects/todo-app",
+    "image": {
+      "src": "/images/todo-app-3.png",
+      "alt": "Todo App - Full-stack augmenté par l'IA"
+    }
+  },
+  {
     "id": 1,
     "featured": true,
     "number": "01",

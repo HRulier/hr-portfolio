@@ -136,7 +136,7 @@
   outline: none;
   color: $color-white;
   font-family: inherit;
-  font-size: $fs-body; // 1rem
+  font-size: $fs-regular; // 1rem
   width: 100%;
   caret-color: $color-tonic;
 
@@ -156,7 +156,7 @@
   outline: none;
   color: $color-white;
   font-family: inherit;
-  font-size: $fs-body; // 1rem
+  font-size: $fs-regular; // 1rem
   width: 100%;
   min-height: 120px;
   resize: none;
@@ -286,7 +286,7 @@
 }
 
 .successTitle {
-  font-size: $fs-project-title; // 1.5rem
+  font-size: $fs-subtitle; // 1.5rem
   font-weight: $fw-medium; // 600
   color: $color-white;
   margin-bottom: $sp-xs; // 0.5rem
