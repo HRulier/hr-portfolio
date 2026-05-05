@@ -21,11 +21,24 @@
 
   .logo {
     font-family: $font-family;
-    font-size: $fs-medium;
-    font-weight: $fw-bold;
+    font-size: $fs-regular;
+    font-weight: $fw-black;
     line-height: $lh-snug;
     // letter-spacing: -0.04em;
     // letter-spacing: $ls-wide;
+
+    @media screen and (min-width: $bp-xs) {
+      font-size: $fs-medium;
+      font-weight: $fw-bold;
+    }
+
+    .dev {
+      display: block;
+      @media screen and (min-width: $bp-xs) {
+        display: initial;
+      }
+    }
+
     .dot {
       color: $color-tonic;
     }
@@ -34,7 +47,15 @@
   ul {
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    gap: 1rem;
+
+    @media screen and (min-width: $bp-xs) {
+      gap: 2rem;
+    }
+
+    @media screen and (min-width: $bp-sm) {
+      gap: 2.5rem;
+    }
 
     li {
       display: inline-block;
@@ -79,6 +100,7 @@
 
       &.cta a {
         @include btn-cta();
+
         &:hover {
           color: $color-white;
         }
