@@ -27,8 +27,9 @@ const ProjectCard = ({ project }: { project: Project }) => {
         <Image
           src={project.image.src}
           alt={project.image.alt}
-          width={800}
-          height={300}
+          // width={800}
+          // height={300}
+          fill
           style={{
             maxWidth: "100%",
             objectFit: "cover",
