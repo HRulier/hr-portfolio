@@ -26,6 +26,7 @@
       letter-spacing: $ls-tight;
       margin-bottom: $sp-md;
       line-height: 1;
+      text-align: center;
 
       @media (min-width: $bp-md) {
         font-size: $fs-cta-title;
