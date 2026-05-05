@@ -54,6 +54,11 @@
 
         .project {
           width: clamp(360px, 45vw, 600px);
+          padding: 0 $sp-sm;
+
+          @media screen and (min-width: $bp-xs) {
+            padding: 0 0;
+          }
         }
       }
     }

@@ -3,7 +3,13 @@
 .card {
   flex: 0 0 auto;
   width: clamp(360px, 30vw, 460px);
-  border: solid 1px $color-light-gray;
+  max-height: 590px;
+
+  padding: 0 $sp-sm;
+
+  @media screen and (min-width: $bp-xs) {
+    padding: 0 0;
+  }
 
   a {
     display: flex;
@@ -13,6 +19,7 @@
     padding: $sp-xl;
     text-decoration: none;
     color: inherit;
+    border: solid 1px $color-light-gray;
 
     &:hover .arrow {
       transform: translateX(12px);

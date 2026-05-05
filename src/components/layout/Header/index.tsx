@@ -14,7 +14,10 @@ const Header = () => {
       {pathname === "/" ? (
         <Link href="/">
           <div className={styles.logo}>
-            HUGO RULIER<span className={styles.dot}>.</span>DEV
+            HUGO RULIER
+            <span className={styles.dev}>
+              <span className={styles.dot}>.</span>DEV
+            </span>
           </div>
         </Link>
       ) : (
