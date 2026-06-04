@@ -34,10 +34,6 @@ export async function POST(request: Request) {
 
     const resend = new Resend(process.env.RESEND_APIKEY);
 
-    console.log(process.env.RESEND_APIKEY);
-    console.log(process.env.EMAIL_TO);
-    console.log(process.env.NOREPLY);
-
     const [{ error: confirmationError }, { error: notificationError }] =
       await Promise.all([
         resend.emails.send({
