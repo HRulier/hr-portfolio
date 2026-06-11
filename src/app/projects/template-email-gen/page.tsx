@@ -21,7 +21,7 @@ export default function TemplateEmailGen() {
           </TransitionLink>
           <span className={styles.tag}>Projet personnel</span>
           <div className={styles.title}>
-            <h1>EmailGen — Générateur de templates email IA</h1>
+            <h1>EmailGen - Générateur de templates email IA</h1>
           </div>
           <p className={styles.intro}>
             Un éditeur de templates email assisté par Claude. Décrivez votre
