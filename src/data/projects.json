@@ -1,5 +1,27 @@
 [
   {
+    "id": 9,
+    "number": "09",
+    "featured": true,
+    "title": "EmailGen — Générateur de templates email IA",
+    "subtitle": "Projet personnel",
+    "description": "Éditeur de templates email assisté par Claude : l'IA opère sur un Virtual File System via des outils structurés (str_replace, extract_fields), esbuild compile le composant React Email en temps réel, et les champs éditables sont extraits automatiquement du JSX généré. Clés API utilisateur chiffrées en AES-256-GCM.",
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Anthropic Claude",
+      "React Email",
+      "MongoDB",
+      "esbuild",
+      "better-auth"
+    ],
+    "href": "/projects/template-email-gen",
+    "image": {
+      "src": "/images/tmplt-email-gen.jpg",
+      "alt": "EmailGen — Générateur de templates email IA"
+    }
+  },
+  {
     "id": 8,
     "number": "08",
     "featured": true,
