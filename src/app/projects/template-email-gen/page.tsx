@@ -28,12 +28,13 @@ export default function TemplateEmailGen() {
             email en langage naturel, affinez les textes depuis le panneau
             latéral ou via le chat, et obtenez un composant React Email compilé
             en temps réel. Sous le capot : un agent IA opérant sur un système de
-            fichiers virtuel, un pipeline esbuild en mémoire, et une extraction
-            automatique des champs éditables depuis le JSX généré.
+            fichiers virtuel, un pipeline esbuild-wasm exécuté entièrement dans
+            le navigateur, et une extraction automatique des champs éditables
+            depuis le JSX généré.
           </p>
           <div className={styles.ctas}>
             <a
-              href="https://github.com/HRulier/tmplt-email"
+              href="https://github.com/HRulier/template-email-gen"
               target="_blank"
               rel="noopener noreferrer"
               className={`${styles.ctaBtn} ${styles.primary}`}
@@ -67,7 +68,6 @@ export default function TemplateEmailGen() {
                   "MongoDB",
                   "Mongoose 9",
                   "better-auth v1.6",
-                  "esbuild",
                   "Resend",
                   "AES-256-GCM",
                   "Zod",
@@ -84,6 +84,7 @@ export default function TemplateEmailGen() {
                 {[
                   "React 19",
                   "CSS Modules",
+                  "esbuild-wasm",
                   "@react-email/components",
                   "@react-email/render",
                   "react-hook-form",
@@ -104,13 +105,13 @@ export default function TemplateEmailGen() {
         <div className={styles.content}>
           <div className={styles.featureHeader}>
             <h2 className={styles.featureTitle}>
-              Un agent IA qui opère sur du vrai code — pas sur du texte
+              Un agent IA qui opère sur du vrai code - pas sur du texte
             </h2>
             <p className={styles.featureSubtitle}>
               Claude ne génère pas du code dans une zone de texte. Il utilise
-              des outils structurés pour modifier précisément les fichiers
-              d&apos;un système de fichiers virtuel, comme un développeur qui
-              appliquerait des diffs.
+              des outils structurés pour modifier précisément les fichiers d'un
+              système de fichiers virtuel, comme un développeur qui appliquerait
+              des diffs.
             </p>
           </div>
 
@@ -122,7 +123,7 @@ export default function TemplateEmailGen() {
               la moindre modification de texte ou de couleur nécessite de
               retoucher du code. L&apos;objectif était de rendre ce processus
               conversationnel, tout en garantissant un aperçu fidèle au rendu
-              réel — pas une approximation.
+              réel - pas une approximation.
             </p>
           </div>
 
@@ -130,12 +131,14 @@ export default function TemplateEmailGen() {
             <h3>L&apos;approche</h3>
             <p>
               Le template vit dans un <strong>Virtual File System (VFS)</strong>{" "}
-              en mémoire — une map de chemins vers du contenu, jamais écrite sur
+              en mémoire - une map de chemins vers du contenu, jamais écrite sur
               disque. <code>Email.tsx</code> est compilé à la demande par{" "}
-              <strong>esbuild</strong> (en in-process, sans subprocess), puis
+              <strong>esbuild-wasm directement dans le navigateur</strong>, puis
               rendu en HTML par <code>@react-email/render</code> et injecté dans
-              un iframe. L&apos;aperçu est donc un vrai rendu React Email, pas
-              une approximation.
+              un iframe. Aucun code utilisateur n&apos;est jamais exécuté côté
+              serveur - l&apos;aperçu est un vrai rendu React Email, pas une
+              approximation, et le pipeline reste isolé dans l&apos;onglet de
+              l&apos;utilisateur.
             </p>
             <p>
               Côté IA, Claude dispose de quatre outils structurés :{" "}
@@ -152,7 +155,7 @@ export default function TemplateEmailGen() {
 
           <div className={styles.featureBlock}>
             <h3>
-              Les champs éditables — extraction automatique depuis le code
+              Les champs éditables - extraction automatique depuis le code
             </h3>
             <p>
               Chaque zone de texte dans le template porte un attribut{" "}
@@ -172,7 +175,7 @@ export default function TemplateEmailGen() {
               <p>
                 <code>str_replace</code> cible une portion exacte du fichier.
                 Une modification d&apos;une couleur ne retouche pas le reste du
-                template — le diff est chirurgical.
+                template - le diff est chirurgical.
               </p>
             </div>
             <div className={styles.guaranteeCard}>
@@ -211,11 +214,13 @@ export default function TemplateEmailGen() {
             <div className={styles.technicalBlock}>
               <h4>Pipeline de compilation</h4>
               <p>
-                <code>VirtualFileSystem</code> (in-memory) →{" "}
-                <code>esbuild</code> (bundle en mémoire, résolution des imports{" "}
+                Tout se passe côté client : <code>VirtualFileSystem</code>{" "}
+                (in-memory) → <code>esbuild-wasm</code> (bundle en mémoire dans
+                le navigateur, résolution des imports{" "}
                 <code>@react-email/components</code>) →{" "}
                 <code>@react-email/render</code> → HTML injecté dans un iframe.
-                Aucune écriture disque, latence minimale.
+                Aucune écriture disque, aucun appel serveur pour l&apos;aperçu,
+                latence minimale.
               </p>
             </div>
             <div className={styles.technicalBlock}>
@@ -233,7 +238,7 @@ export default function TemplateEmailGen() {
               <p>
                 Un routeur inspecte chaque message avant de l&apos;envoyer à
                 Claude et sélectionne automatiquement le modèle adapté à la
-                complexité de la demande — génération initiale, édition ciblée,
+                complexité de la demande - génération initiale, édition ciblée,
                 ou simple réponse textuelle.
               </p>
             </div>
@@ -259,10 +264,25 @@ export default function TemplateEmailGen() {
           </h2>
           <div className={styles.technicalSingle}>
             <p>
+              <strong>
+                Pas d&apos;exécution de code utilisateur côté serveur.
+              </strong>{" "}
+              La compilation esbuild et le rendu React Email se font
+              exclusivement dans le navigateur de l&apos;utilisateur via{" "}
+              <code>esbuild-wasm</code> et un iframe - éliminant par
+              construction toute possibilité d&apos;exécution de code arbitraire
+              (RCE) dans le processus Node. L&apos;endpoint d&apos;envoi de test
+              ne reçoit que du HTML déjà rendu, validé via <strong>Zod</strong>{" "}
+              et plafonné à 500 KB, et le destinataire est forcé à
+              l&apos;adresse de l&apos;utilisateur authentifié - pas de relais
+              ouvert possible. Un rate-limit quotidien par utilisateur empêche
+              tout abus de la clé Resend.
+            </p>
+            <p>
               Les utilisateurs peuvent brancher leur propre clé Anthropic pour
               un usage illimité. La clé est chiffrée en{" "}
               <strong>AES-256-GCM</strong> avant stockage MongoDB avec le champ
-              marqué <code>select: false</code> — elle n&apos;est jamais
+              marqué <code>select: false</code> - elle n&apos;est jamais
               retournée dans les requêtes, jamais loggée, et déchiffrée
               uniquement dans le scope de la requête de génération. Sans clé
               personnelle, un quota de <strong>5 requêtes gratuites</strong> sur
